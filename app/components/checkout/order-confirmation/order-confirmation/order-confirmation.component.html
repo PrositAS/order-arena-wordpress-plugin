@@ -1,0 +1,13 @@
+<div
+  *ngIf="imageHeaderUrl$ | async as imageHeaderUrl"
+  class="background-image-header"
+  [style.background-image]="'url(' + imageHeaderUrl + ')'"
+></div>
+<div class="primary-section">
+  <mat-card class="order-confirmation">
+    <mat-card-title>{{ 'ORDER_COMPLETE' | appTranslate }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ 'ORDER_COMPLETE_PARAGRAPH' | appTranslate }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

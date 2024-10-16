@@ -1,0 +1,23 @@
+.article-image {
+  position: relative;
+  width: 100%;
+  align-content: center;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+
+  app-empty-placeholder > svg,
+  img,
+  svg,
+  .mat-mdc-card-image {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .article-actions {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+}

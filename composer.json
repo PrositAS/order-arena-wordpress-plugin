@@ -1,0 +1,12 @@
+{
+  "autoload": {
+    "psr-4": {
+      "OA\\": "php"
+    }
+  },
+  "require": {
+    "gmostafa/php-graphql-client": "^1.4"
+  },
+  "version": "0.1.8"
+}
+

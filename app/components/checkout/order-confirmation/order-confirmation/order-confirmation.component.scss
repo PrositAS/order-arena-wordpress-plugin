@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.primary-section {
+  $primary-section-height: calc(100% - 250px);
+  height: $primary-section-height;
+
+  display: flex;
+  justify-content: center;
+
+  .order-confirmation {
+    width: 90%;
+    max-height: $primary-section-height;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .primary-section .order-confirmation {
+    width: 60%;
+  }
+}

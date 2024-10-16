@@ -1,0 +1,9 @@
+@import '/src/styles';
+
+:host {
+  @include flex-fill-page;
+}
+
+app-login {
+  height: calc(100% - 83px);
+}

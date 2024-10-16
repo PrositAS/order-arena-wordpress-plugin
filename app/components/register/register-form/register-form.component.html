@@ -1,0 +1,76 @@
+<form #registerFormRef class="flex-column centered" *ngIf="form" [formGroup]="form" (ngSubmit)="register()">
+  <mat-form-field [appearance]="appearance">
+    <mat-label>{{ 'EMAIL' | appTranslate }}</mat-label>
+    <input matInput type="email" [formControl]="email" />
+    <mat-error *ngIf="email.invalid">{{ email | validationError }}</mat-error>
+  </mat-form-field>
+  <mat-form-field [appearance]="appearance">
+    <mat-label>{{ 'PHONE' | appTranslate }}</mat-label>
+    <mat-icon matPrefix>phone</mat-icon>
+    <app-phone-input matInput [formControl]="phone"></app-phone-input>
+    <mat-error *ngIf="phone.invalid">{{ phone | validationError }}</mat-error>
+  </mat-form-field>
+  <mat-form-field [appearance]="appearance">
+    <mat-label>{{ 'NAME' | appTranslate }}</mat-label>
+    <input matInput type="text" [formControl]="name" />
+    <mat-error *ngIf="name.invalid">{{ name | validationError }}</mat-error>
+  </mat-form-field>
+  <mat-form-field [appearance]="appearance">
+    <mat-label>{{ 'SURNAME' | appTranslate }}</mat-label>
+    <input matInput type="text" [formControl]="surname" />
+    <mat-error *ngIf="surname.invalid">{{ surname | validationError }}</mat-error>
+  </mat-form-field>
+  <mat-form-field [appearance]="appearance">
+    <mat-label>{{ 'PASSWORD' | appTranslate }}</mat-label>
+    <input matInput [type]="hidePassword ? 'password' : 'text'" [formControl]="password" />
+    <button
+      mat-icon-button
+      matSuffix
+      type="button"
+      (click)="hidePassword = !hidePassword"
+      [attr.aria-label]="'HIDE_PASSWORD' | appTranslate"
+      [attr.aria-pressed]="hidePassword"
+    >
+      <mat-icon class="material-icons-outlined">
+        {{ hidePassword ? 'visibility_off' : 'visibility' }}
+      </mat-icon>
+    </button>
+    <mat-error *ngIf="password.invalid">{{ password | validationError }}</mat-error>
+  </mat-form-field>
+  <mat-form-field [appearance]="appearance">
+    <mat-label>{{ 'CONFIRM_PASSWORD' | appTranslate }}</mat-label>
+    <input matInput [type]="hidePassword ? 'password' : 'text'" [formControl]="passwordConfirmation" />
+    <button
+      mat-icon-button
+      matSuffix
+      type="button"
+      (click)="hidePassword = !hidePassword"
+      [attr.aria-label]="'HIDE_PASSWORD' | appTranslate"
+      [attr.aria-pressed]="hidePassword"
+    >
+      <mat-icon class="material-icons-outlined">
+        {{ hidePassword ? 'visibility_off' : 'visibility' }}
+      </mat-icon>
+    </button>
+    <mat-error *ngIf="passwordConfirmation.invalid">
+      {{ passwordConfirmation | validationError }}
+    </mat-error>
+  </mat-form-field>
+  <mat-checkbox [formControl]="gdpr">
+    {{ 'GDPR_CONSENT' | appTranslate }}
+    <a class="plain-link bold-text" [href]="termsUrl" target="_blank">
+      ({{ 'TERMS_AND_CONDITIONS_LINK' | appTranslate }})
+    </a>
+  </mat-checkbox>
+  <mat-error class="standalone-error checkbox-error" *ngIf="gdpr.invalid">
+    {{ gdpr | validationError }}
+  </mat-error>
+  <button mat-flat-button [color]="color" type="submit" [disabled]="!form.valid || !gdpr.valid">
+    {{ 'REGISTER' | appTranslate }}
+  </button>
+  <app-overlay-spinner
+    *ngIf="validating && afterViewChecked"
+    [triggerRef]="registerFormRef"
+    [transparent]="true"
+  ></app-overlay-spinner>
+</form>

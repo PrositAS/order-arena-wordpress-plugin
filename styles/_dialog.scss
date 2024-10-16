@@ -1,0 +1,121 @@
+@import 'variables';
+
+.mat-mdc-dialog-title.mdc-dialog__title {
+  font-size: $up-font-l-size;
+  line-height: $up-font-l-lh;
+  font-weight: $up-font-weight-bold;
+
+  &.accent-text {
+    --mdc-dialog-subhead-color: #{$up-accent-color};
+    --mdc-dialog-supporting-text-color: #{$up-accent-color};
+  }
+}
+
+mat-dialog-content.mat-mdc-dialog-content {
+  padding: 20px 24px;
+
+  &.dialog-content-centered {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .mat-mdc-dialog-title.mdc-dialog__title {
+      padding: 0;
+      margin-bottom: 1em;
+    }
+  }
+
+  &.login-dialog-content,
+  &.order-confirmation-dialog-content {
+    padding: 0;
+  }
+
+  &.login-dialog-content,
+  &.register-dialog-content,
+  &.order-confirmation-dialog-content {
+    --mdc-dialog-subhead-color: #{$up-primary-color};
+    --mdc-dialog-supporting-text-color: #{$up-primary-color};
+
+    .mat-mdc-dialog-title.mdc-dialog__title {
+      font-size: $up-font-xxl-size;
+      line-height: $up-font-xxl-lh;
+      font-weight: $up-font-weight-bold;
+      text-align: center;
+    }
+  }
+}
+
+mat-dialog-actions.mat-mdc-dialog-actions {
+  justify-content: center;
+  gap: 24px;
+  box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.14);
+
+  button.mdc-button {
+    width: 100%;
+  }
+}
+
+.dialog-actions-top {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  z-index: 1;
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing.spinner-backdrop {
+  background-color: $up-light-gray;
+  transition: none;
+}
+
+.cdk-overlay-pane {
+  justify-content: center;
+}
+
+mat-dialog-container.mat-mdc-dialog-container {
+  max-height: 98vh;
+  --mdc-dialog-container-shape: 0;
+}
+
+// NOTE: transparent dialog, ie. used in overlay spinner
+.transparent mat-dialog-container.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: transparent;
+}
+
+.transparent .mat-mdc-dialog-surface {
+  box-shadow: none !important;
+}
+
+@media screen and (min-width: 768px) {
+  .cdk-overlay-pane:not(.login-dialog, .register-dialog, .order-confirmation-dialog, .transparent) {
+    mat-dialog-container.mat-mdc-dialog-container {
+      width: 80vw;
+    }
+  }
+
+  mat-dialog-container.mat-mdc-dialog-container {
+    max-height: inherit;
+  }
+
+  mat-dialog-actions.mat-mdc-dialog-actions {
+    justify-content: flex-end;
+    padding: 20px 24px;
+
+    button.mdc-button {
+      width: 200px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cdk-overlay-pane:not(.login-dialog, .register-dialog, .order-confirmation-dialog, .transparent) {
+    mat-dialog-container.mat-mdc-dialog-container {
+      width: 60vw;
+    }
+  }
+}
