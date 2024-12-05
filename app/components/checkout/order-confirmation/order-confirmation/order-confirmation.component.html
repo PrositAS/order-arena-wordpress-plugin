@@ -1,0 +1,16 @@
+<div
+  class="background-image-header"
+  [ngStyle]="{
+    backgroundImage: (imageHeaderUrl$ | async) ? 'url(' + (imageHeaderUrl$ | async) + ')' : 'none'
+  }"
+></div>
+<div class="primary-section">
+  <mat-card class="order-confirmation">
+    <mat-card-title>{{ 'ORDER_COMPLETE' | appTranslate }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ 'ORDER_COMPLETE_PARAGRAPH' | appTranslate }}</p>
+      <mat-divider></mat-divider>
+      <app-order-summary [order]="orderRequest"></app-order-summary>
+    </mat-card-content>
+  </mat-card>
+</div>

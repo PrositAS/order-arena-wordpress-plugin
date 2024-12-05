@@ -1,0 +1,10 @@
+@import '/src/styles';
+
+:host {
+  @include flex-fill-page;
+  @include sidenav-content-background;
+}
+
+app-login {
+  height: calc(100% - 64px);
+}

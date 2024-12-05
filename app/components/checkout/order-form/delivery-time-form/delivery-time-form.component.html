@@ -1,0 +1,57 @@
+<mat-card class="delivery-time-form">
+  <mat-card-header>
+    <mat-card-title>
+      {{ 'DELIVERY_TIME_FORM_TITLE' | appTranslate }}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form *ngIf="form" [formGroup]="form">
+      <div class="form-row form-row-dual">
+        <mat-form-field *ngIf="closedDates$ | async">
+          <mat-label>{{ 'DELIVERY_DATE' | appTranslate }}</mat-label>
+          <input
+            matInput
+            [formControl]="date"
+            [min]="minDeliveryDate$ | async"
+            [matDatepicker]="deliveryDatepicker"
+            [matDatepickerFilter]="disabledDatesFilter"
+          />
+          <mat-datepicker-toggle matIconPrefix [for]="deliveryDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker
+            #deliveryDatepicker
+            (opened)="datepickerOpened()"
+            [dateClass]="styleDisabledDates"
+            panelClass="delivery-date"
+          >
+          </mat-datepicker>
+          <mat-error *ngIf="date.invalid">{{ date | validationError }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ 'DELIVERY_TIME_START' | appTranslate }}</mat-label>
+          <mat-icon matPrefix>schedule</mat-icon>
+          <app-time-input matInput [formControl]="deliveryStart" minutesInterval="15"></app-time-input>
+          <mat-error *ngIf="deliveryStart.invalid">{{ deliveryStart | validationError }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row form-row-dual-reverse">
+        <mat-form-field>
+          <mat-label>{{ 'EATING_TIME' | appTranslate }}</mat-label>
+          <mat-icon matPrefix>schedule</mat-icon>
+          <app-time-input matInput [formControl]="eatingTime"></app-time-input>
+          <mat-error *ngIf="eatingTime.invalid">{{ eatingTime | validationError }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ 'DELIVERY_TIME_END' | appTranslate }}</mat-label>
+          <mat-icon matPrefix>schedule</mat-icon>
+          <app-time-input matInput [formControl]="deliveryEnd"></app-time-input>
+          <mat-error *ngIf="deliveryEnd.invalid">{{ deliveryEnd | validationError }}</mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+    <mat-card *ngIf="isEquipmentDelivery" class="warning">
+      <mat-card-content>
+        {{ 'CONTACT_RESTAURANT_ON_EQUIPMENT_DELIVERY' | appTranslate }}
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

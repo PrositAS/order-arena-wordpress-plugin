@@ -1,0 +1,203 @@
+@use '@angular/material' as mat;
+
+:root {
+  --up-primary-color-lighter: #b9bcc0;
+  --up-primary-color: #151e2c;
+  --up-primary-color-darker: #0f1621;
+  --up-primary-contrast-color-lighter: #ffffff;
+  --up-primary-contrast-color: #ffffff;
+  --up-primary-contrast-color-darker: #ffffff;
+  --up-accent-color-lighter: #ffffff;
+  --up-accent-color: #ffffff;
+  --up-accent-color-darker: #ffffff;
+  --up-accent-contrast-color-lighter: #000000;
+  --up-accent-contrast-color: #000000;
+  --up-accent-contrast-color-darker: #000000;
+  --up-warn-color-lighter: #efc1c0;
+  --up-warn-color: #c8302c;
+  --up-warn-color-darker: #bb2421;
+  --up-warn-contrast-color-lighter: #000000;
+  --up-warn-contrast-color: #ffffff;
+  --up-warn-contrast-color-darker: #ffffff;
+}
+
+$up-primary-config: (
+  50: #e3e4e6,
+  100: var(--up-primary-color-lighter),
+  200: #8a8f96,
+  300: #5b626b,
+  400: #38404c,
+  500: var(--up-primary-color),
+  600: #121a27,
+  700: var(--up-primary-color-darker),
+  800: #0c121b,
+  900: #060a10,
+  A100: #5389ff,
+  A200: #2066ff,
+  A400: #004aec,
+  A700: #0042d3,
+  contrast: (
+    50: #000000,
+    100: var(--up-primary-contrast-color-lighter),
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    // 500: #ffffff,
+    500: var(--up-primary-contrast-color),
+    600: #ffffff,
+    700: var(--up-primary-contrast-color-darker),
+    // 700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+$up-accent-config: (
+  50: #ffffff,
+  100: var(--up-accent-color-lighter),
+  200: #ffffff,
+  300: #ffffff,
+  400: #ffffff,
+  500: var(--up-accent-color),
+  600: #ffffff,
+  700: var(--up-accent-color-darker),
+  800: #ffffff,
+  900: #ffffff,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (
+    50: #000000,
+    100: var(--up-accent-contrast-color-lighter),
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: var(--up-accent-contrast-color),
+    600: #000000,
+    700: var(--up-accent-contrast-color-darker),
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$up-warn-config: (
+  50: #f8e6e6,
+  100: var(--up-warn-color-lighter),
+  200: #e49896,
+  300: #d96e6b,
+  400: #d04f4c,
+  500: var(--up-warn-color),
+  600: #c22b27,
+  700: var(--up-warn-color-darker),
+  800: #b41e1b,
+  900: #a71310,
+  A100: #ffd8d7,
+  A200: #ffa5a4,
+  A400: #ff7371,
+  A700: #ff5a58,
+  contrast: (
+    50: #000000,
+    100: var(--up-warn-contrast-color-lighter),
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: var(--up-warn-contrast-color),
+    600: #ffffff,
+    700: var(--up-warn-contrast-color-darker),
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+// Theme palettes
+$up-primary-palette: mat.define-palette($up-primary-config);
+$up-accent-palette: mat.define-palette($up-accent-config);
+$up-warn-palette: mat.define-palette($up-warn-config);
+
+// Theme colors
+$up-primary-color: mat.get-color-from-palette($up-primary-palette);
+$up-accent-color: mat.get-color-from-palette($up-accent-palette);
+$up-warn-color: mat.get-color-from-palette($up-warn-palette);
+
+// Additional colors
+$up-gray: #929292;
+$up-light-gray: #f2f2f2;
+$up-dark-gray: #555555;
+
+// Font family
+$font-family: '"Merriweather Sans", sans-serif';
+
+// Font sizes
+$up-font-xs-size: 12px;
+$up-font-s-size: 14px;
+$up-font-m-size: 16px;
+$up-font-l-size: 18px;
+$up-font-xl-size: 24px;
+$up-font-xxl-size: 32px;
+$up-font-xxxl-size: 40px;
+
+// Line heights
+$up-font-xs-lh: 12px;
+$up-font-s-lh: 16px;
+$up-font-m-lh: 18.5px;
+$up-font-l-lh: 20px;
+$up-font-xl-lh: 28px;
+$up-font-xxl-lh: 40px;
+$up-font-xxxl-lh: 48px;
+
+// Font weights
+$up-font-weight-light: 100;
+$up-font-weight-semi-light: 200;
+$up-font-weight-regular: 400;
+$up-font-weight-bold: 700;
+
+$up-typography-config: mat.define-typography-config(
+  $font-family: $font-family,
+  $headline-1: mat.define-typography-level(112px, 112px, $up-font-weight-semi-light, $letter-spacing: -0.05em),
+  $headline-2: mat.define-typography-level(56px, 56px, $up-font-weight-regular, $letter-spacing: -0.02em),
+  $headline-3: mat.define-typography-level(45px, 48px, $up-font-weight-regular, $letter-spacing: -0.005em),
+  $headline-4: mat.define-typography-level(34px, 40px, $up-font-weight-regular),
+  $headline-5:
+    mat.define-typography-level(
+      $up-font-xxl-size,
+      $up-font-xxl-lh,
+      $up-font-weight-bold,
+      $letter-spacing: 0.125em
+    ),
+  $headline-6: mat.define-typography-level($up-font-xl-size, $up-font-xl-lh, $up-font-weight-bold),
+  $subtitle-1:
+    mat.define-typography-level(
+      $up-font-l-size,
+      $up-font-l-lh,
+      $up-font-weight-bold,
+      $letter-spacing: -0.02em
+    ),
+  $subtitle-2:
+    mat.define-typography-level(
+      $up-font-m-size,
+      $up-font-m-lh,
+      $up-font-weight-regular,
+      $letter-spacing: -0.02em
+    ),
+  $body-1: mat.define-typography-level($up-font-m-size, $up-font-m-lh, $up-font-weight-regular),
+  $body-2: mat.define-typography-level($up-font-m-size, $up-font-m-lh, $up-font-weight-light),
+  $caption:
+    mat.define-typography-level(
+      $up-font-s-size,
+      $up-font-l-lh,
+      $up-font-weight-semi-light,
+      $letter-spacing: -0.005em
+    ),
+);

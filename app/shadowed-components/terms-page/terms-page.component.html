@@ -1,0 +1,21 @@
+<div
+  #termsRef
+  class="flex-column full-height"
+  [ngStyle]="{ visibility: (hidden$ | async) ? 'hidden' : 'visible' }"
+>
+  <div
+    class="background-image-header"
+    [ngStyle]="{
+      backgroundImage: (imageHeaderUrl$ | async) ? 'url(' + (imageHeaderUrl$ | async) + ')' : 'none'
+    }"
+  ></div>
+  <div class="primary-section">
+    <mat-card class="terms-and-conditions">
+      <mat-card-title>{{ 'TERMS_AND_CONDITIONS' | appTranslate }}</mat-card-title>
+      <mat-card-content>
+        <app-terms></app-terms>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<app-overlay-spinner *ngIf="hidden$ | async" [triggerRef]="termsRef"></app-overlay-spinner>
