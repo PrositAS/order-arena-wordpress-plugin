@@ -1,0 +1,19 @@
+<div
+  class="company-number-input-container"
+  [attr.aria-describedby]="userAriaDescribedBy"
+  [attr.aria-labelledby]="parentFormField?.getLabelId()"
+  (focusin)="onFocusIn($event)"
+  (focusout)="onFocusOut($event)"
+>
+  <input
+    #companyNumberInput
+    [formControl]="companyNumber"
+    type="tel"
+    inputmode="numeric"
+    maxlength="9"
+    class="company-number-input-element mdc-text-field__input"
+    [attr.aria-label]="'COMPANY_NUMBER' | appTranslate"
+    (input)="handleInput()"
+    (blur)="handleBlur()"
+  />
+</div>

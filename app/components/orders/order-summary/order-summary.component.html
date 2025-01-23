@@ -1,0 +1,184 @@
+<mat-spinner *ngIf="!readonly && loading$ | async"></mat-spinner>
+<ng-container *ngIf="readonly || (loading$ | async) === false">
+  <div class="order">
+    <div class="summary" [ngClass]="{ 'lg-screen-hidden': !showOrderTopSummary }">
+      <span *ngIf="showOrderTopSummary && order.id" class="bold-text">
+        {{ '#' + order.id }}
+      </span>
+      <span *ngIf="order.status">
+        ({{
+          cmTranslateService.prepareTranslationKey(order.status, 'ORDER_STATUS') | appTranslate | uppercase
+        }})
+      </span>
+      <span *ngIf="order.orderArticles">
+        {{ order.orderArticles.length }} {{ 'ARTICLES' | appTranslate }}
+      </span>
+      <span *ngIf="order.orderPrice">
+        {{ 'FOR' | appTranslate }}
+        {{ order.orderPrice.finalPriceMva | number: '1.0-0' }} NOK
+      </span>
+    </div>
+    <div class="details">
+      <div class="delivery">
+        <div class="delivery-address" *ngIf="orderDeliveryData">
+          <span class="bold-text">{{ 'DELIVERY_ADDRESS' | appTranslate }}:</span>
+          <span>{{ orderDeliveryData | orderCustomerData }}</span>
+          <span>{{ orderDeliveryData | deliveryAddressStreetData }}</span>
+          <span>{{ orderDeliveryData | deliveryAddressPostalCityData }}</span>
+        </div>
+        <div class="delivery-time" *ngIf="order.orderSchedule as orderSchedule">
+          <span class="bold-text">{{ (orderSchedule.pickup ? 'PICK_UP' : 'DELIVERY') | appTranslate }}:</span>
+          <span *ngIf="orderSchedule.serveAt">
+            {{ orderSchedule.serveAt | amDateFormat: 'dddd' | titlecase }}
+            {{ orderSchedule.serveAt | amDateFormat: 'DD.MM.YY' }}
+          </span>
+          <span *ngIf="orderSchedule.deliveryStart && orderSchedule.deliveryEnd">
+            {{ 'BETWEEN' | appTranslate }}
+            {{ orderSchedule.deliveryStart }}
+            {{ 'AND' | appTranslate }}
+            {{ orderSchedule.deliveryEnd }}
+          </span>
+        </div>
+      </div>
+      <div class="actions">
+        <ng-container *ngIf="!readonly">
+          <div *ngIf="activeOrderArticles$ | async as activeOrderArticles" class="actions-reorder">
+            <button
+              mat-flat-button
+              color="primary"
+              (click)="reorder()"
+              [disabled]="!activeOrderArticles.length"
+            >
+              {{ 'ORDER_AGAIN' | appTranslate }}
+            </button>
+            <mat-error
+              class="standalone-error"
+              *ngIf="getReorderWarningText(activeOrderArticles.length) as reorderDisabledText"
+            >
+              {{ reorderDisabledText | appTranslate }}
+            </mat-error>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="articles">
+      <div class="pure-g header">
+        <div class="pure-u-12-24 pure-u-md-16-24">
+          {{ 'NAME' | appTranslate | lowercase }}
+        </div>
+        <div class="pure-u-6-24 pure-u-md-4-24">
+          {{ 'QUANTITY' | appTranslate | lowercase }}
+        </div>
+        <div class="pure-u-6-24 pure-u-md-4-24">
+          {{ 'PRICE' | appTranslate | lowercase }} ({{ 'NET' | appTranslate | uppercase }})
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+
+      <div class="pure-g article" *ngFor="let article of venues; let i = index">
+        <ng-container
+          *ngTemplateOutlet="
+            articleDetails;
+            context: {
+              article: article,
+              type: 'venue',
+              i: i + 1,
+              active: readonly || isArticleAvailable(article, activeOrderArticles$ | async)
+            }
+          "
+        >
+        </ng-container>
+      </div>
+
+      <mat-divider *ngIf="!!venues.length && !!foods.length"></mat-divider>
+      <div class="pure-g article" *ngFor="let article of foods; let i = index">
+        <ng-container
+          *ngTemplateOutlet="
+            articleDetails;
+            context: {
+              article: article,
+              type: 'food',
+              i: i + 1,
+              active: readonly || isArticleAvailable(article, activeOrderArticles$ | async)
+            }
+          "
+        >
+        </ng-container>
+      </div>
+
+      <mat-divider *ngIf="(!!venues.length || !!foods.length) && !!equipment.length"></mat-divider>
+      <div class="pure-g article" *ngFor="let article of equipment; let i = index">
+        <ng-container
+          *ngTemplateOutlet="
+            articleDetails;
+            context: {
+              article: article,
+              type: 'equipment',
+              i: i + 1,
+              active: readonly || isArticleAvailable(article, activeOrderArticles$ | async)
+            }
+          "
+        >
+        </ng-container>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div *ngIf="order.orderPrice" class="price-summary">
+      <div *ngIf="order.orderPrice.totalPrice" class="pure-g total-price">
+        <div class="pure-u-18-24 pure-u-md-20-24">
+          {{ 'TOTAL_PRICE' | appTranslate | uppercase }} ({{ 'NET' | appTranslate | uppercase }})
+        </div>
+        <div class="pure-u-6-24 pure-u-md-4-24">{{ order.orderPrice.totalPrice | number: '1.0-0' }} NOK</div>
+      </div>
+      <div *ngIf="order.orderPrice.discount" class="pure-g discount">
+        <div class="pure-u-18-24 pure-u-md-20-24">
+          {{ 'DISCOUNT' | appTranslate | uppercase }}
+        </div>
+        <div class="pure-u-6-24 pure-u-md-4-24">{{ order.orderPrice.discount | number: '1.0-0' }} NOK</div>
+      </div>
+      <div *ngIf="order.orderPrice.mvaRate" class="pure-g discount">
+        <div class="pure-u-18-24 pure-u-md-20-24">
+          {{ 'VAT' | appTranslate | uppercase }}
+        </div>
+        <div class="pure-u-6-24 pure-u-md-4-24">{{ order.orderPrice.mvaRate | number: '1.0-0' }}%</div>
+      </div>
+      <div
+        *ngIf="order.orderPrice.finalPriceMva && order.orderPrice.finalPriceMva"
+        class="pure-g final-price bold-text"
+      >
+        <div class="pure-u-18-24 pure-u-md-20-24">
+          {{ 'FINAL_PRICE' | appTranslate | uppercase }} ({{ 'GROSS' | appTranslate | uppercase }})
+        </div>
+        <div class="pure-u-6-24 pure-u-md-4-24">
+          {{ order.orderPrice.finalPriceMva | number: '1.0-0' }} NOK
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="order.orderNote?.delivery || order.orderNote?.orderNote">
+      <mat-divider></mat-divider>
+      <div class="pure-g additional-info" *ngIf="order.orderNote?.delivery || order.orderNote?.orderNote">
+        <div class="pure-u-1-1 pure-u-md-12-24 order-note" *ngIf="order.orderNote.orderNote">
+          <span class="bold-text">{{ 'ORDER_NOTES' | appTranslate }}:</span>
+          <div [innerHTML]="order.orderNote.orderNote"></div>
+        </div>
+        <div class="pure-u-1-1 pure-u-md-12-24 delivery-note" *ngIf="order.orderNote.delivery">
+          <span class="bold-text">{{ 'DELIVERY_INFORMATION' | appTranslate }}:</span>
+          <div [innerHTML]="order.orderNote.delivery"></div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #articleDetails let-article="article" let-type="type" let-i="i" let-active="active">
+  <div class="pure-u-12-24 pure-u-md-16-24 name" [ngClass]="{ 'disabled-text': !active }">
+    {{ i }}. {{ article.article[type].name }}
+  </div>
+  <div class="pure-u-6-24 pure-u-md-4-24 quantity">
+    {{ article.quantity }}
+    {{
+      (article.article[type].quantityType ? article.article[type].quantityType.name : 'PIECES') | appTranslate
+    }}
+  </div>
+  <div class="pure-u-6-24 pure-u-md-4-24 price">{{ article.totalPrice | number: '1.0-0' }} NOK</div>
+</ng-template>

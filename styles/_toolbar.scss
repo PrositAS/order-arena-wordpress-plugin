@@ -1,0 +1,26 @@
+@import 'variables';
+
+mat-toolbar.mat-toolbar {
+  --mat-toolbar-standard-height: 64px;
+  --mat-toolbar-mobile-height: 64px;
+
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  flex: 0 0 auto;
+
+  box-shadow:
+    0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  h1 {
+    --mat-toolbar-title-text-size: #{$up-font-xxl-size};
+    --mat-toolbar-title-text-line-height: #{$up-font-xxl-lh};
+    --mat-toolbar-title-text-weight: #{$up-font-weight-bold};
+  }
+
+  div.pure-g {
+    width: 100%;
+  }
+}
