@@ -1,0 +1,13 @@
+<div class="orders">
+  <mat-spinner *ngIf="loading$ | async"></mat-spinner>
+  <ng-container *ngIf="(loading$ | async) === false && orders$ | async as orders">
+    <app-empty-placeholder *ngIf="!orders.length">
+      {{ 'ORDER_HISTORY_EMPTY' | appTranslate }} <br />
+    </app-empty-placeholder>
+    <mat-accordion *ngIf="user$ | async as user" [multi]="true">
+      <ng-container *ngFor="let order of orders; let i = index">
+        <app-order [order]="order" [index]="i" [user]="user"></app-order>
+      </ng-container>
+    </mat-accordion>
+  </ng-container>
+</div>

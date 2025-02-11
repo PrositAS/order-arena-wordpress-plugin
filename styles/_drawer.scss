@@ -1,0 +1,15 @@
+mat-drawer-container.mat-drawer-container {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  mat-drawer.mat-drawer {
+    width: 300px;
+  }
+}
+
+mat-drawer.mat-drawer-side.mat-drawer-end {
+  --mat-sidenav-container-divider-color: #{$up-primary-color};
+  border-left-style: none;
+}

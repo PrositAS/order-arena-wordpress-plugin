@@ -1,0 +1,87 @@
+@use 'src/styles/basic';
+
+@mixin sharp-border {
+  --mdc-outlined-card-outline-width: 0;
+  --mdc-outlined-card-container-shape: 0;
+  --mdc-elevated-card-container-shape: 0;
+  --mdc-outlined-card-container-color: #fafafa;
+}
+
+.articles {
+  .article {
+    mat-card.mat-mdc-card.mdc-card {
+      @include sharp-border;
+
+      --mat-card-title-text-size: #{$up-font-m-size};
+      --mat-card-title-text-weight: #{$up-font-weight-bold};
+
+      --mat-card-subtitle-text-size: #{$up-font-s-size};
+      --mat-card-subtitle-text-line-height: #{$up-font-s-lh};
+
+      mat-card-footer.mat-mdc-card-footer {
+        padding: 0 16px 16px;
+
+        mat-card-title.mat-mdc-card-title,
+        mat-card-subtitle.mat-mdc-card-subtitle {
+          @include ellipsis;
+        }
+      }
+    }
+  }
+}
+
+.order-form {
+  mat-card.mat-mdc-card.mdc-card {
+    --mdc-outlined-card-outline-color: #{$up-gray};
+    --mdc-outlined-card-container-shape: 1em;
+    --mdc-elevated-card-container-shape: 1em;
+    --mdc-outlined-card-container-elevation: none;
+
+    &.warning {
+      --mdc-outlined-card-outline-color: #{$up-warn-color};
+      color: #{$up-dark-gray};
+    }
+  }
+
+  mat-card-header.mat-mdc-card-header {
+    padding-bottom: 16px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+mat-card.mat-mdc-card.mdc-card {
+  &.order-confirmation,
+  &.terms-and-conditions {
+    @include sharp-border;
+
+    --mat-card-title-text-size: #{$up-font-xxl-size};
+    --mat-card-title-text-line-height: #{$up-font-xxl-lh};
+    --mat-card-title-text-weight: #{$up-font-weight-bold};
+
+    height: 100%;
+    width: 90%;
+    box-sizing: border-box;
+
+    $mat-card-top-overlay-height: calc((64px + var(--mat-card-title-text-line-height)) * -1);
+    top: $mat-card-top-overlay-height;
+
+    mat-card-title.mat-mdc-card-title {
+      padding: 32px;
+    }
+
+    mat-card-content.mat-mdc-card-content {
+      padding: 0 32px 32px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  mat-card.mat-mdc-card.mdc-card {
+    &.order-confirmation,
+    &.terms-and-conditions {
+      width: 60%;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div class="dialog-actions-top">
+  <button mat-icon-button [mat-dialog-close]="true">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<mat-dialog-content class="register-dialog-content dialog-content-centered">
+  <h2 mat-dialog-title class="primary-text">
+    {{ 'REGISTER' | appTranslate }}
+  </h2>
+  <app-register-form (registered)="close($event)"></app-register-form>
+</mat-dialog-content>

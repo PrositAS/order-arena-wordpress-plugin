@@ -1,0 +1,68 @@
+<mat-card class="past-order-data-form">
+  <mat-card-header>
+    <mat-card-title>
+      {{ 'PAST_ORDER_DATA_FORM_TITLE' | appTranslate }}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-spinner *ngIf="loading$ | async"></mat-spinner>
+    <ng-container *ngIf="(loading$ | async) === false && ordersData$ | async as orders">
+      <app-empty-placeholder *ngIf="!orders.length">
+        {{ 'ORDER_HISTORY_EMPTY' | appTranslate }} <br />
+      </app-empty-placeholder>
+      <mat-button-toggle-group
+        class="p-button-toggle-group-separated"
+        *ngIf="!!orders.length"
+        [value]="orderId$ | async"
+      >
+        <ng-container *ngFor="let order of orders">
+          <ng-container *ngTemplateOutlet="orderDataButton; context: { order: order }"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="inputOrderData$ | async as inputOrderData">
+          <ng-container
+            *ngTemplateOutlet="orderDataButton; context: { order: inputOrderData }"
+          ></ng-container>
+        </ng-container>
+      </mat-button-toggle-group>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #orderDataButton let-order="order">
+  <mat-button-toggle
+    *ngIf="order"
+    [value]="order.id"
+    [disableRipple]="true"
+    [checked]="order.id === (orderId$ | async)"
+    (change)="selected($event.value)"
+  >
+    <div class="order-data">
+      <div *ngIf="order.id === 'new'" class="icon-background">
+        <mat-icon>add</mat-icon>
+      </div>
+      <div *ngIf="order.invoice.forCompany" class="invoice">
+        <mat-icon
+          class="material-icons-outlined"
+          [color]="order.id === (orderId$ | async) ? 'accent' : 'primary'"
+          >receipt_long</mat-icon
+        >
+        <div class="data">
+          <span>{{ order | orderCustomerData }}</span>
+        </div>
+      </div>
+      <div class="delivery">
+        <mat-icon
+          class="material-icons-outlined"
+          [color]="order.id === (orderId$ | async) ? 'accent' : 'primary'"
+        >
+          delivery_dining
+        </mat-icon>
+        <div class="data">
+          <span>{{ order | orderCustomerData }}</span>
+          <span>{{ order | deliveryAddressStreetData }}</span>
+          <span>{{ order | deliveryAddressPostalCityData }}</span>
+        </div>
+      </div>
+    </div>
+  </mat-button-toggle>
+</ng-template>

@@ -1,0 +1,11 @@
+<ng-container *ngIf="!linkMode">
+  <button mat-stroked-button class="form-field-tall" [color]="color" (click)="showRegisterForm()">
+    {{ 'REGISTER' | appTranslate }}
+  </button>
+</ng-container>
+
+<ng-container *ngIf="linkMode">
+  <span [ngClass]="{ 'accent-text': color === 'accent' }" (click)="showRegisterForm()">
+    {{ 'REGISTER | appTranslate }}
+  </span>
+</ng-container>

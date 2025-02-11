@@ -1,0 +1,25 @@
+@import '/src/styles';
+
+:host {
+  @include flex-fill-page;
+}
+
+.primary-section {
+  $primary-section-height: calc(100% - 250px);
+  height: $primary-section-height;
+
+  display: flex;
+  justify-content: center;
+
+  .terms-and-conditions {
+    overflow: auto;
+
+    .oa-legal-information {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1em;
+    }
+  }
+}

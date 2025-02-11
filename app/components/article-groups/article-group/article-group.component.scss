@@ -1,0 +1,11 @@
+@import '/src/styles/variables';
+
+.article-group {
+  // NOTE: mat-toolbar-row height x2 + pure-u top padding
+  scroll-margin-top: 182px;
+
+  & &-description {
+    font-size: $up-font-s-size;
+    font-weight: $up-font-weight-regular;
+  }
+}

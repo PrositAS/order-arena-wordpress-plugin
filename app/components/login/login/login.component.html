@@ -1,0 +1,38 @@
+<div class="primary-section">
+  <div class="section-content">
+    <h1 *ngIf="standalone" class="accent-text">
+      {{ 'LOG_IN_TO_VIEW_ORDERS' | appTranslate }}
+    </h1>
+    <ng-container *ngIf="!standalone">
+      <h2 *ngIf="!inDialog" class="accent-text">
+        {{ 'LOG_IN_TO_VIEW_ORDERS' | appTranslate }}
+      </h2>
+      <h2 mat-dialog-title *ngIf="inDialog" class="accent-text">
+        {{ 'LOG_IN_TO_VIEW_ORDERS' | appTranslate }}
+      </h2>
+    </ng-container>
+    <app-login-form color="accent" (validated)="validated.emit(true)"></app-login-form>
+  </div>
+  <div class="bottom-section-content flex-column center-aligned">
+    <button
+      mat-button
+      class="scroll-to-register"
+      color="accent"
+      [disableRipple]="true"
+      (click)="scrollToRegisterSection()"
+    >
+      <div class="flex-column center-aligned">
+        <span class="accent-text bold-text">{{ 'NO_ACCOUNT_YET' | appTranslate }}</span>
+        <mat-icon color="accent">expand_more</mat-icon>
+      </div>
+    </button>
+  </div>
+</div>
+<div id="register-section" class="accent-section">
+  <div class="section-content">
+    <h2 class="primary-text">
+      {{ 'FIRST_TIME_HERE' | appTranslate }}
+    </h2>
+    <app-register-button></app-register-button>
+  </div>
+</div>

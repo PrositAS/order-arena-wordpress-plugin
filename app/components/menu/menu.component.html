@@ -1,0 +1,72 @@
+<div
+  *ngIf="imageHeaderUrl$ | async as imageHeaderUrl"
+  class="background-image-header"
+  [style.background-image]="'url(' + imageHeaderUrl + ')'"
+></div>
+<mat-toolbar color="accent" role="toolbar">
+  <mat-toolbar-row>
+    <div class="pure-g">
+      <div class="pure-u-0 pure-u-lg-2-24 pure-u-xl-4-24"></div>
+      <div class="pure-u-1 pure-u-lg-20-24 pure-u-xl-16-24">
+        <div class="flex space-between center-aligned">
+          <h1>
+            {{
+              (articleType === 'venue' ? 'VENUES' : articleType === 'equipment' ? 'EQUIPMENT' : 'MENU')
+                | appTranslate
+            }}
+          </h1>
+          <app-user-login-button></app-user-login-button>
+        </div>
+      </div>
+      <div class="pure-u-0 pure-u-lg-2-24 pure-u-xl-4-24"></div>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <div class="pure-g">
+      <div class="pure-u-0 pure-u-lg-2-24 pure-u-xl-4-24"></div>
+      <div class="pure-u-1 pure-u-lg-20-24 pure-u-xl-16-24">
+        <mat-spinner *ngIf="loading" [diameter]="75"></mat-spinner>
+        <ng-container *ngIf="articleGroupsTree$ | async as menuTree">
+          <mat-tab-group
+            class="clickable-tabs"
+            mat-stretch-tabs="false"
+            mat-align-tabs="start"
+            [selectedIndex]="activeGroupIndex"
+            (selectedIndexChange)="scrollToActiveArticleGroup($event)"
+          >
+            <ng-container *ngFor="let menuNode of menuTree">
+              <mat-tab *ngIf="menuNode.group && menuNode.group.active">
+                <ng-template mat-tab-label>
+                  <a class="clickable-label plain-link" [href]="'#' + menuNode.group?.name">
+                    {{ menuNode.group?.name }}
+                  </a>
+                </ng-template>
+              </mat-tab>
+            </ng-container>
+          </mat-tab-group>
+        </ng-container>
+      </div>
+      <div class="pure-u-0 pure-u-lg-2-24 pure-u-xl-4-24"></div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="pure-g">
+  <div class="pure-u-0 pure-u-lg-2-24 pure-u-xl-4-24"></div>
+  <div class="pure-u-1 pure-u-lg-20-24 pure-u-xl-16-24 menu">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <ng-container *ngIf="articleGroupsTree$ | async as articleGroups">
+      <app-empty-placeholder *ngIf="!articleGroups.length">
+        {{ 'NO_ARTICLE_GROUPS' | appTranslate }}
+      </app-empty-placeholder>
+      <ng-container *ngFor="let articleGroup of articleGroups">
+        <app-article-group
+          *ngIf="articleGroup.group"
+          [group]="articleGroup.group"
+          [childGroups]="getChildArticleGroups(articleGroup)"
+        ></app-article-group>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="pure-u-0 pure-u-lg-2-24 pure-u-xl-4-24"></div>
+</div>

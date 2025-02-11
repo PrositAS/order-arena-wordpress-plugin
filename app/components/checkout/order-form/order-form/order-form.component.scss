@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  height: 100%;
+  overflow: auto;
+}
+
+.order-form {
+  border-spacing: 0 2em;
+
+  & > * {
+    margin-bottom: 1em;
+  }
+
+  .order-footer {
+    padding: 0 1em;
+    margin-bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5em;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .order-form .order-footer button {
+    width: calc(50% - 1em);
+  }
+}
+
+app-login {
+  height: calc(100% - 64px);
+}

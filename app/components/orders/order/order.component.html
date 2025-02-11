@@ -1,0 +1,31 @@
+<mat-expansion-panel *ngIf="order" [expanded]="index === 0">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span class="order-id" *ngIf="order.id">{{ '#' + order.id }} </span>
+      <span *ngIf="orderTime">
+        &middot; {{ orderTime.format('LL') }} {{ 'AT' | appTranslate }} {{ orderTime.format('LT') }}
+      </span>
+    </mat-panel-title>
+    <mat-panel-description>
+      <span *ngIf="order.status">
+        ({{
+          cmTranslateService.prepareTranslationKey(order.status, 'ORDER_STATUS') | appTranslate | uppercase
+        }})
+      </span>
+      <span *ngIf="order.orderArticles">
+        {{ order.orderArticles.length }} {{ 'ARTICLES' | appTranslate }}
+      </span>
+      <span *ngIf="order.orderPrice">
+        {{ 'FOR' | appTranslate }}
+        {{ order.orderPrice.finalPriceMva | number: '1.0-0' }} NOK
+      </span>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <app-order-summary
+    [order]="order"
+    [user]="user"
+    [readonly]="false"
+    [showOrderTopSummary]="false"
+  ></app-order-summary>
+</mat-expansion-panel>

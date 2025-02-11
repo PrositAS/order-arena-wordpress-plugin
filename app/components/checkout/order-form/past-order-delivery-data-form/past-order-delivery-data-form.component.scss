@@ -1,0 +1,45 @@
+@import '/src/styles/variables';
+
+.order-data {
+  height: 100%;
+  width: 100%;
+  min-height: 72px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+
+  .invoice,
+  .delivery {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5em;
+
+    mat-icon {
+      flex: 1 0 auto;
+      opacity: 80%;
+    }
+
+    .data {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      font-size: $up-font-xs-size;
+      line-height: $up-font-m-lh;
+
+      span {
+        max-width: 100%;
+        overflow: auto;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

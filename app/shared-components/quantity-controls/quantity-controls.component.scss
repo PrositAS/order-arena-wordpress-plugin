@@ -1,0 +1,38 @@
+@import '/src/styles/variables';
+
+.quantity-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  .input {
+    display: flex;
+    justify-content: space-between;
+
+    input[type='number'] {
+      &.accent {
+        color: $up-accent-color;
+      }
+    }
+    input[type='number'] {
+      width: 48px;
+      border: none;
+      background: transparent;
+      text-align: center;
+    }
+  }
+
+  .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: $up-font-weight-light;
+    font-size: $up-font-s-size;
+    color: $up-gray;
+    gap: 0.5em;
+  }
+
+  &-inline {
+    flex-direction: row-reverse;
+  }
+}

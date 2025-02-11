@@ -1,0 +1,43 @@
+.form-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+
+  &-dual {
+    flex-direction: column;
+
+    &-reverse {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &-half {
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    &-dual,
+    &-dual-reverse {
+      flex-direction: row;
+      justify-content: space-between;
+
+      mat-form-field:first-of-type {
+        margin-right: 2em;
+      }
+    }
+
+    &-half {
+      width: calc(50% - 1em);
+    }
+  }
+}
+
+.order-form {
+  mat-card {
+    margin-bottom: 1em;
+  }
+}

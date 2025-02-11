@@ -1,0 +1,17 @@
+.oa-media-input-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  min-height: 8rem;
+}
+
+.oa-media-input {
+  flex: 1 0 auto;
+}
+
+.oa-media-input input[type='text'] {
+  width: 100%;
+}
