@@ -1,0 +1,175 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Order Arena v<%= htmlWebpackPlugin.options.version %>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings updated!"
+msgstr "Settings updated!"
+
+msgid "Primary color palette settings for Order Arena Plugin."
+msgstr "Primary color palette settings for Order Arena Plugin."
+
+msgid "Accent color palette settings for Order Arena Plugin."
+msgstr "Accent color palette settings for Order Arena Plugin."
+
+msgid "Warn color palette settings for Order Arena Plugin."
+msgstr "Warn color palette settings for Order Arena Plugin."
+
+msgid "Image headers settings for Order Arena Plugin."
+msgstr "Image headers settings for Order Arena Plugin."
+
+msgid "Settings for Order Arena Plugin"
+msgstr "Settings for Order Arena Plugin"
+
+msgid "Primary colors"
+msgstr "Primary colors"
+
+msgid "Accent colors"
+msgstr "Accent colors"
+
+msgid "Warn colors"
+msgstr "Warn colors"
+
+msgid "Image headers"
+msgstr "Image headers"
+
+msgid "Primary color (lighter)"
+msgstr "Primary color (lighter)"
+
+msgid "Primary color"
+msgstr "Primary color"
+
+msgid "Primary color (darker)"
+msgstr "Primary color (darker)"
+
+msgid "Primary contrast color (lighter)"
+msgstr "Primary contrast color (lighter)"
+
+msgid "Primary contrast color"
+msgstr "Primary contrast color"
+
+msgid "Primary contrast color (darker)"
+msgstr "Primary contrast color (darker)"
+
+msgid "Accent color (lighter)"
+msgstr "Accent color (lighter)"
+
+msgid "Accent color"
+msgstr "Accent color"
+
+msgid "Accent color (darker)"
+msgstr "Accent color (darker)"
+
+msgid "Accent contrast color (lighter)"
+msgstr "Accent contrast color (lighter)"
+
+msgid "Accent contrast color"
+msgstr "Accent contrast color"
+
+msgid "Accent contrast color (darker)"
+msgstr "Accent contrast color (darker)"
+
+msgid "Warn color (lighter)"
+msgstr "Warn color (lighter)"
+
+msgid "Warn color"
+msgstr "Warn color"
+
+msgid "Warn color (darker)"
+msgstr "Warn color (darker)"
+
+msgid "Warn contrast color (lighter)"
+msgstr "Warn contrast color (lighter)"
+
+msgid "Warn contrast color"
+msgstr "Warn contrast color"
+
+msgid "Warn contrast color (darker)"
+msgstr "Warn contrast color (darker)"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Order confirmation"
+msgstr "Order confirmation"
+
+msgid "Terms and conditions"
+msgstr "Terms and conditions"
+
+msgid "Order Arena"
+msgstr "Order Arena"
+
+msgid "Order Arena Settings"
+msgstr "Order Arena Settings"
+
+msgid "OA Checkout Page Template"
+msgstr "OA Checkout Page Template"
+
+msgid "OA Equipment Page Template"
+msgstr "OA Equipment Page Template"
+
+msgid "OA Menu Page Template"
+msgstr "OA Menu Page Template"
+
+msgid "OA Profile Page Template"
+msgstr "OA Profile Page Template"
+
+msgid "OA Terms Page Template"
+msgstr "OA Terms Page Template"
+
+msgid "OA Venues Page Template"
+msgstr "OA Venues Page Template"
+
+msgid "Pages from Order Arena Plugin"
+msgstr "Pages from Order Arena Plugin"
+
+msgid "Order Arena Pages"
+msgstr "Order Arena Pages"
+
+msgid "Order Arena Page"
+msgstr "Order Arena Page"
+
+msgid "Add New Order Arena Page"
+msgstr "Add New Order Arena Page"
+
+msgid "Edit Order Arena Page"
+msgstr "Edit Order Arena Page"
+
+msgid "New Order Arena Page"
+msgstr "New Order Arena Page"
+
+msgid "View Order Arena Page"
+msgstr "View Order Arena Page"
+
+msgid "View Order Arena Pages"
+msgstr "View Order Arena Pages"
+
+msgid "Search Order Arena Pages"
+msgstr "Search Order Arena Pages"
+
+msgid "All Order Arena Pages"
+msgstr "All Order Arena Pages"
+
+msgid "No Order Arena Pages found"
+msgstr "No Order Arena Pages found"
+
+msgid "Order Arena Page Attributes"
+msgstr "Order Arena Page Attributes"
+
+msgid "Insert into Order Arena Page"
+msgstr "Insert into Order Arena Page"
+
+msgid "Uploaded to this Order Arena Page"
+msgstr "Uploaded to this Order Arena Page"
+
+msgid "Order Arena Page Image"
+msgstr "Order Arena Page Image"
+
+msgid "Remove Order Arena Page Image"
+msgstr "Remove Order Arena Page Image"
+
+msgid "Use Order Arena Page Image"
+msgstr "Use Order Arena Page Image"

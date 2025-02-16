@@ -1,0 +1,23 @@
+@import '/src/styles';
+
+mat-dialog-content.mat-mdc-dialog-content.dialog-content-centered {
+  app-register-form {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  mat-dialog-content.mat-mdc-dialog-content.dialog-content-centered {
+    app-register-form {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  mat-dialog-content.mat-mdc-dialog-content.dialog-content-centered {
+    app-register-form {
+      width: 30%;
+    }
+  }
+}

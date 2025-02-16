@@ -1,0 +1,175 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Order Arena v<%= htmlWebpackPlugin.options.version %>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings updated!"
+msgstr "Innstillinger oppdatert!"
+
+msgid "Primary color palette settings for Order Arena Plugin."
+msgstr "Primær fargepalett-innstillinger for Order Arena-pluginen."
+
+msgid "Accent color palette settings for Order Arena Plugin."
+msgstr "Aksent fargepalett-innstillinger for Order Arena-pluginen."
+
+msgid "Warn color palette settings for Order Arena Plugin."
+msgstr "Varsel fargepalett-innstillinger for Order Arena-pluginen."
+
+msgid "Image headers settings for Order Arena Plugin."
+msgstr "Bildehoder innstillinger for Order Arena-pluginen."
+
+msgid "Settings for Order Arena Plugin"
+msgstr "Innstillinger for Order Arena-pluginen"
+
+msgid "Primary colors"
+msgstr "Primærfarger"
+
+msgid "Accent colors"
+msgstr "Aksentfarger"
+
+msgid "Warn colors"
+msgstr "Varsel farger"
+
+msgid "Image headers"
+msgstr "Bildeoverskrift"
+
+msgid "Primary color (lighter)"
+msgstr "Primærfarge (lysere)"
+
+msgid "Primary color"
+msgstr "Primærfarge"
+
+msgid "Primary color (darker)"
+msgstr "Primærfarge (mørkere)"
+
+msgid "Primary contrast color (lighter)"
+msgstr "Primær kontrastfarge (lysere)"
+
+msgid "Primary contrast color"
+msgstr "Primær kontrastfarge"
+
+msgid "Primary contrast color (darker)"
+msgstr "Primær kontrastfarge (mørkere)"
+
+msgid "Accent color (lighter)"
+msgstr "Aksentfarge (lysere)"
+
+msgid "Accent color"
+msgstr "Aksentfarge"
+
+msgid "Accent color (darker)"
+msgstr "Aksentfarge (mørkere)"
+
+msgid "Accent contrast color (lighter)"
+msgstr "Aksent kontrastfarge (lysere)"
+
+msgid "Accent contrast color"
+msgstr "Aksent kontrastfarge"
+
+msgid "Accent contrast color (darker)"
+msgstr "Aksent kontrastfarge (mørkere)"
+
+msgid "Warn color (lighter)"
+msgstr "Varselfarge (lysere)"
+
+msgid "Warn color"
+msgstr "Varselfarge"
+
+msgid "Warn color (darker)"
+msgstr "Varselfarge (mørkere)"
+
+msgid "Warn contrast color (lighter)"
+msgstr "Varsel kontrastfarge (lysere)"
+
+msgid "Warn contrast color"
+msgstr "Varsel kontrastfarge"
+
+msgid "Warn contrast color (darker)"
+msgstr "Varsel kontrastfarge (mørkere)"
+
+msgid "Menu"
+msgstr "Meny"
+
+msgid "Order confirmation"
+msgstr "Bestillingsbekreftelse"
+
+msgid "Terms and conditions"
+msgstr "Vilkår og betingelser"
+
+msgid "Order Arena"
+msgstr "Order Arena"
+
+msgid "Order Arena Settings"
+msgstr "Order Arena innstillinger"
+
+msgid "OA Checkout Page Template"
+msgstr "OA Kasse sidemal"
+
+msgid "OA Equipment Page Template"
+msgstr "OA Utstyr sidemal"
+
+msgid "OA Menu Page Template"
+msgstr "OA Meny sidemal"
+
+msgid "OA Profile Page Template"
+msgstr "OA Profil sidemal"
+
+msgid "OA Terms Page Template"
+msgstr "OA Vilkår sidemal"
+
+msgid "OA Venues Page Template"
+msgstr "OA Lokaler sidemal"
+
+msgid "Pages from Order Arena Plugin"
+msgstr "Sider fra Order Arena-pluginen"
+
+msgid "Order Arena Pages"
+msgstr "Order Arena Sider"
+
+msgid "Order Arena Page"
+msgstr "Order Arena Side"
+
+msgid "Add New Order Arena Page"
+msgstr "Legg til ny Order Arena Side"
+
+msgid "Edit Order Arena Page"
+msgstr "Rediger Order Arena Side"
+
+msgid "New Order Arena Page"
+msgstr "Ny Order Arena Side"
+
+msgid "View Order Arena Page"
+msgstr "Vis Order Arena Side"
+
+msgid "View Order Arena Pages"
+msgstr "Vis Order Arena Sider"
+
+msgid "Search Order Arena Pages"
+msgstr "Søk Order Arena Sider"
+
+msgid "All Order Arena Pages"
+msgstr "Alle Order Arena Sider"
+
+msgid "No Order Arena Pages found"
+msgstr "Ingen Order Arena Sider funnet"
+
+msgid "Order Arena Page Attributes"
+msgstr "Order Arena Sideegenskaper"
+
+msgid "Insert into Order Arena Page"
+msgstr "Sett inn i Order Arena Side"
+
+msgid "Uploaded to this Order Arena Page"
+msgstr "Lastet opp til denne Order Arena Siden"
+
+msgid "Order Arena Page Image"
+msgstr "Order Arena Sidebilde"
+
+msgid "Remove Order Arena Page Image"
+msgstr "Fjern Order Arena Sidebilde"
+
+msgid "Use Order Arena Page Image"
+msgstr "Bruk Order Arena Sidebilde"
