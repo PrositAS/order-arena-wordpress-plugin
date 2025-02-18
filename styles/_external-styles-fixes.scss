@@ -1,0 +1,10 @@
+// NOTE: fix enfold interference in styles
+.mat-calendar-table-header,
+.mat-calendar-body {
+  tr {
+    th,
+    td {
+      border: none !important;
+    }
+  }
+}

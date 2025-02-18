@@ -1,0 +1,22 @@
+mat-tab-group.mat-mdc-tab-group {
+  &.clickable-tabs {
+    .mdc-tab {
+      padding: 0;
+
+      .mdc-tab__content {
+        width: 100%;
+
+        .mdc-tab__text-label {
+          // NOTE: to match the height of the tab
+          line-height: 40px;
+          width: 100%;
+
+          .clickable-label {
+            width: 100%;
+            padding: 0 12px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<div class="actions">
+  <button
+    mat-icon-button
+    [disabled]="resetDisabled"
+    color="primary"
+    [matTooltip]="'RESET_' + formNameKey | appTranslate"
+    (click)="reset()"
+  >
+    <mat-icon>backspace</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    color="primary"
+    [disabled]="saveDisabled"
+    [matTooltip]="'SAVE_' + formNameKey | appTranslate"
+    (click)="save()"
+  >
+    <mat-icon>save</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,89 @@
+// Basic table CSS based on MatTable
+.mat-basic {
+  &-table {
+    width: stretch;
+    border-spacing: 0;
+
+    thead,
+    tbody {
+      display: block;
+      border-bottom: none;
+    }
+    // @extend .mat-table;
+  }
+  &-row {
+    // @extend mat-row;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  &-header-row {
+    min-height: 56px;
+    // @extend mat-header-row;
+  }
+  &-footer-row {
+    // @extend mat-footer-row;
+  }
+  &-footer-row,
+  &-row {
+    min-height: 48px;
+  }
+  &-footer-row,
+  &-header-row,
+  &-row {
+    display: flex;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-style: solid;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  &-footer-row::after,
+  &-header-row::after,
+  &-row::after {
+    display: inline-block;
+    min-height: inherit;
+    content: '';
+  }
+  &-cell {
+    // @extend .mat-cell;
+  }
+  &-header-cell {
+    // @extend .mat-header-cell;
+  }
+  &-footer-cell {
+    // @extend .mat-footer-cell;
+  }
+  &-cell:first-of-type,
+  &-footer-cell:first-of-type,
+  &-header-cell:first-of-type {
+    padding-left: 24px;
+  }
+  [dir='rtl'] &-cell:first-of-type,
+  [dir='rtl'] &-footer-cell:first-of-type,
+  [dir='rtl'] &-header-cell:first-of-type {
+    padding-left: 0;
+    padding-right: 24px;
+  }
+  &-cell:last-of-type,
+  &-footer-cell:last-of-type,
+  &-header-cell:last-of-type {
+    padding-right: 24px;
+  }
+  [dir='rtl'] &-cell:last-of-type,
+  [dir='rtl'] &-footer-cell:last-of-type,
+  [dir='rtl'] &-header-cell:last-of-type {
+    padding-right: 0;
+    padding-left: 24px;
+  }
+  &-cell,
+  &-footer-cell,
+  &-header-cell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    word-wrap: break-word;
+    // min-height: inherit;
+  }
+}

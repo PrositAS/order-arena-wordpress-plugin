@@ -1,0 +1,35 @@
+<div
+  #termsRef
+  class="flex-column full-height"
+  [ngStyle]="{ visibility: (hidden$ | async) ? 'hidden' : 'visible' }"
+>
+  <div
+    class="background-image-header"
+    [ngStyle]="{
+      backgroundImage: (imageHeaderUrl$ | async) ? 'url(' + (imageHeaderUrl$ | async) + ')' : 'none'
+    }"
+  ></div>
+  <div class="primary-section">
+    <mat-card class="terms-and-conditions">
+      <mat-card-title>
+        {{ 'TERMS_AND_CONDITIONS' | appTranslate }}
+      </mat-card-title>
+      <mat-card-content>
+        <app-terms></app-terms>
+        <mat-divider></mat-divider>
+        <h2>{{ 'ORDER_ARENA' | appTranslate }}</h2>
+        <div class="oa-legal-information">
+          <a mat-fab extended color="primary" [href]="termsOfUseUrl" target="_blank">
+            <mat-icon>history_edu</mat-icon>
+            {{ 'TERMS_OF_USE' | appTranslate }}
+          </a>
+          <a mat-fab extended color="primary" [href]="privacyPolicyUrl" target="_blank">
+            <mat-icon>policy</mat-icon>
+            {{ 'PRIVACY_POLICY' | appTranslate }}
+          </a>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<app-overlay-spinner *ngIf="hidden$ | async" [triggerRef]="termsRef"></app-overlay-spinner>
