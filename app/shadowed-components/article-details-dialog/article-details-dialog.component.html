@@ -1,0 +1,79 @@
+<div class="dialog-actions-top">
+  <button mat-icon-button [mat-dialog-close]="true" color="primary">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div class="article-details">
+  <div class="left">
+    <div class="image">
+      <ng-container *ngIf="imageUrl$ | async as imageUrl">
+        <img [src]="imageUrl" [alt]="name$ | async" />
+      </ng-container>
+      <ng-container *ngIf="!!(imageUrl$ | async) === false">
+        <app-empty-placeholder></app-empty-placeholder>
+      </ng-container>
+    </div>
+    <div class="allergens" *ngIf="hasAllergens$ | async">
+      <app-allergens-list [food]="product$ | async"></app-allergens-list>
+    </div>
+  </div>
+  <div class="right">
+    <h2 mat-dialog-title>{{ name$ | async }}</h2>
+    <mat-dialog-content>
+      <p class="pricing">
+        <span class="price" *ngIf="articlePrice$ | async as articlePrice">
+          {{ articlePrice | number: '1.0-0' }} NOK / {{ 'PERSON' | appTranslate }}
+        </span>
+        <span class="min-quantity" *ngIf="minPersons$ | async as minPersons">
+          {{ 'MIN_PERSONS' | appTranslate }}: {{ minPersons }}
+        </span>
+      </p>
+      <mat-divider></mat-divider>
+
+      <div class="description" *ngIf="description$ | async as description" [innerHTML]="description"></div>
+      <ng-container *ngIf="childArticles$ | async as childArticles">
+        <div class="child-articles" *ngIf="childArticles.length">
+          <mat-divider *ngIf="description$ | async"></mat-divider>
+          <ng-container *ngIf="isFood$ | async">
+            <div class="ca" *ngFor="let ca of childArticles">
+              <ng-container *ngIf="ca.activeWeb">
+                <h4>{{ ca.food.name }}</h4>
+                <div class="ca-description" [innerHTML]="ca.food.description"></div>
+                <div class="allergens" *ngIf="ca.food.allergens.length">
+                  <app-allergens-list [food]="ca.food"></app-allergens-list>
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </mat-dialog-content>
+  </div>
+</div>
+<mat-dialog-actions>
+  <app-quantity-controls
+    [article]="mappedArticle$ | async"
+    [syncWithStore]="syncWithStore$ | async"
+    [quantityWarning]="false"
+    (articleQuantityChanges)="updateQuantity($event)"
+  ></app-quantity-controls>
+  <button
+    mat-flat-button
+    color="primary"
+    [class]="{ 'add-to-basket': (syncWithStore$ | async) === false }"
+    [disabled]="syncWithStore$ | async"
+    (click)="addOrderArticle()"
+  >
+    <div class="flex-column center-aligned">
+      <ng-container *ngIf="(syncWithStore$ | async) === false">
+        <span>
+          {{ 'ADD' | appTranslate | uppercase }}
+        </span>
+        <span> ({{ price$ | async | number: '1.0-0' }} NOK) </span>
+      </ng-container>
+      <ng-container *ngIf="syncWithStore$ | async">
+        {{ 'IN_ORDER' | appTranslate | uppercase }}
+      </ng-container>
+    </div>
+  </button>
+</mat-dialog-actions>

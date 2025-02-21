@@ -1,0 +1,8 @@
+<div class="dialog-actions-top">
+  <button mat-icon-button (click)="redirectToProfile()" color="accent" class="with-background">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<mat-dialog-content class="order-confirmation-dialog-content dialog-content-centered">
+  <app-order-confirmation [orderRequest]="data.orderRequest"></app-order-confirmation>
+</mat-dialog-content>

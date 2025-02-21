@@ -1,0 +1,27 @@
+<ng-container *ngIf="mode === 'button'">
+  <button mat-flat-button [color]="color" *ngIf="(loggedIn$ | async) === false" (click)="showLoginForm()">
+    {{ 'LOG_IN' | appTranslate }}
+  </button>
+  <button mat-flat-button [color]="color" *ngIf="loggedIn$ | async" (click)="logout()">
+    {{ 'LOG_OUT' | appTranslate }}
+  </button>
+</ng-container>
+
+<ng-container *ngIf="mode === 'link'">
+  <ng-container *ngIf="(loggedIn$ | async) === false">
+    <span class="link" [ngClass]="{ 'accent-text': color === 'accent' }" (click)="showLoginForm()">
+      {{ 'LOG_IN' | appTranslate }}
+    </span>
+    <span *ngIf="logInSuffix">{{ logInSuffix | appTranslate }}</span>
+  </ng-container>
+  <ng-container *ngIf="loggedIn$ | async">
+    <span
+      class="link"
+      *ngIf="loggedIn$ | async"
+      [ngClass]="{ 'accent-text': color === 'accent' }"
+      (click)="logout()"
+    >
+      {{ 'LOG_OUT' | appTranslate }}
+    </span>
+  </ng-container>
+</ng-container>

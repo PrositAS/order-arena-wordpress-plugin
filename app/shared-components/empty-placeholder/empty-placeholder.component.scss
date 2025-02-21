@@ -1,0 +1,26 @@
+@import '/src/styles/variables';
+
+:host {
+  margin: auto;
+}
+
+svg {
+  opacity: 0.2;
+  width: 50%;
+  max-width: 400px;
+  display: block;
+  margin: 40px auto;
+}
+
+@media screen and (max-width: 769px) {
+  svg {
+    width: 80%;
+  }
+}
+
+.c {
+  font-size: $up-font-l-size;
+  line-height: $up-font-l-lh;
+  color: $up-gray;
+  text-align: center;
+}

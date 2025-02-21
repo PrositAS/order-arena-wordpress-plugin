@@ -1,0 +1,15 @@
+@import '/src/styles';
+
+.dialog-actions-top {
+  color: $up-accent-color;
+}
+
+app-login {
+  height: 100%;
+}
+
+@media only screen and (orientation: landscape) and (max-height: 899px) {
+  .dialog-actions-top {
+    color: $up-primary-color;
+  }
+}
