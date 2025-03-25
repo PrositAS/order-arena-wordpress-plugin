@@ -1,0 +1,52 @@
+mat-button-toggle-group.mat-button-toggle-group {
+  border: none;
+
+  --mat-standard-button-toggle-text-color: #{$up-dark-gray};
+  --mat-standard-button-toggle-background-color: #{$up-light-gray};
+  --mat-standard-button-toggle-selected-state-background-color: #{$up-primary-color};
+  --mat-standard-button-toggle-selected-state-text-color: #{$up-light-gray};
+  --mat-standard-button-toggle-disabled-state-text-color: #{$up-gray};
+  --mat-standard-button-toggle-disabled-state-background-color: #{$up-light-gray};
+  --mat-standard-button-toggle-disabled-selected-state-text-color: #{$up-dark-gray};
+  --mat-standard-button-toggle-disabled-selected-state-background-color: #{$up-gray};
+
+  mat-button-toggle.mat-button-toggle {
+    border: none;
+  }
+}
+
+/** MAT BUTTON TOGGLE GROUP SEPARATED */
+mat-button-toggle-group.mat-button-toggle-group {
+  &.p-button-toggle-group-separated {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+
+    mat-button-toggle.mat-button-toggle {
+      --mat-standard-button-toggle-shape: 1em;
+
+      flex-grow: 1;
+
+      width: 100%;
+      @media screen and (min-width: 768px) {
+        width: calc((100% - 1em) / 2);
+      }
+      @media screen and (min-width: 1024px) {
+        width: calc((100% - 2em) / 3);
+      }
+
+      &.mat-button-toggle-appearance-standard + .mat-button-toggle-appearance-standard {
+        border-left: none;
+      }
+
+      button.mat-button-toggle-button .mat-button-toggle-label-content {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 1em;
+      }
+    }
+  }
+}

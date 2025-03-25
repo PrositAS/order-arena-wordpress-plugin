@@ -1,0 +1,14 @@
+.mat-calendar-body-cell.calendar-cell-message {
+  --mat-datepicker-calendar-date-disabled-state-text-color: #{$up-warn-contrast-color};
+
+  .mat-calendar-body-cell-content {
+    background-color: $up-warn-color;
+  }
+}
+
+@media (hover: hover) {
+  .mat-calendar-body-cell:not(.mat-calendar-body-disabled, .calendar-cell-message):hover {
+    --mat-datepicker-calendar-date-hover-state-background-color: #{$up-primary-lighter-color};
+    --mat-datepicker-calendar-date-text-color: #{$up-primary-lighter-contrast-color};
+  }
+}

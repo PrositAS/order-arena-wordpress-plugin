@@ -1,0 +1,12 @@
+mat-accordion.mat-accordion {
+  mat-expansion-panel.mat-expansion-panel {
+    --mat-expansion-container-shape: 0;
+
+    mat-expansion-panel-header.mat-expansion-panel-header {
+      mat-panel-title.mat-expansion-panel-header-title,
+      mat-panel-description.mat-expansion-panel-header-description {
+        gap: 0.2em;
+      }
+    }
+  }
+}
