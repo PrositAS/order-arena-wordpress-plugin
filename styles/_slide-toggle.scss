@@ -1,0 +1,62 @@
+@import 'variables';
+
+mat-slide-toggle.mat-mdc-slide-toggle {
+  &.dual-option-toggle {
+    --mdc-switch-selected-focus-track-color: var(--mdc-switch-unselected-focus-track-color);
+    --mdc-switch-selected-hover-track-color: var(--mdc-switch-unselected-hover-track-color);
+    --mdc-switch-selected-pressed-track-color: var(--mdc-switch-unselected-pressed-track-color);
+    --mdc-switch-selected-track-color: var(--mdc-switch-unselected-track-color);
+  }
+
+  button.mdc-switch {
+    --mdc-switch-track-height: calc(var(--mdc-switch-handle-height) + 4px);
+    --mdc-switch-track-shape: calc(var(--mdc-switch-handle-shape) + 4px);
+    --mdc-switch-track-width: 48px;
+  }
+
+  .mdc-switch__handle-track {
+    transition-duration: 150ms;
+    left: 1px;
+    right: 1px;
+    width: calc(100% - var(--mdc-switch-handle-width) - 2px);
+  }
+
+  &.accent-text {
+    .mdc-form-field {
+      color: $up-accent-color;
+    }
+  }
+}
+
+.mat-dual-toggle {
+  $label-text-size: $up-font-s-size;
+  $label-text-line-height: $up-font-m-lh;
+  $label-text-weight: $up-font-weight-regular;
+  $label-text-letter-spacing: normal;
+
+  mat-slide-toggle.mat-mdc-slide-toggle {
+    left: 126px;
+
+    .mdc-label {
+      --mat-slide-toggle-label-text-size: #{$label-text-size};
+      --mat-slide-toggle-label-text-line-height: #{$label-text-line-height};
+      --mat-slide-toggle-label-text-weight: #{$label-text-weight};
+      --mat-slide-toggle-label-text-tracking: #{$label-text-letter-spacing};
+
+      width: 100px;
+    }
+  }
+
+  .mat-toggle-label {
+    cursor: pointer;
+    display: inline-block;
+    width: 96px;
+    text-align: right;
+    padding: 0 4px;
+    font-size: $label-text-size;
+    line-height: $label-text-line-height;
+    font-weight: $label-text-weight;
+    letter-spacing: $label-text-letter-spacing;
+    font-family: var(--mat-slide-toggle-label-text-font);
+  }
+}

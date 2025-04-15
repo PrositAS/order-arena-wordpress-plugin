@@ -1,0 +1,24 @@
+<mat-card class="mat-gray">
+  <mat-card-header>
+    <mat-card-title>
+      {{ 'INVOICE_FORM_TITLE' | appTranslate }}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form *ngIf="form" [formGroup]="form">
+      <div class="form-row">
+        <mat-checkbox formControlName="forCompany">
+          {{ 'INVOICE_TO_COMPANY' | appTranslate }}
+        </mat-checkbox>
+      </div>
+      <app-personal-invoice-form
+        *ngIf="(isCompanyInvoice$ | async) === false"
+        [form]="personalInvoiceForm"
+      ></app-personal-invoice-form>
+      <app-company-invoice-form
+        *ngIf="isCompanyInvoice$ | async"
+        [form]="companyInvoiceForm"
+      ></app-company-invoice-form>
+    </form>
+  </mat-card-content>
+</mat-card>

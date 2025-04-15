@@ -1,0 +1,17 @@
+mat-checkbox .mdc-form-field {
+  --mdc-typography-body2-font-weight: #{$up-font-weight-regular};
+
+  label.mdc-label {
+    color: $up-dark-gray;
+  }
+
+  .mdc-checkbox__background {
+    border-radius: 0;
+  }
+}
+
+.form-row {
+  mat-checkbox > .mdc-form-field {
+    margin-bottom: 22px;
+  }
+}

@@ -1,0 +1,35 @@
+<mat-card *ngIf="article" class="mat-transparent-background article">
+  <div class="article-image">
+    <ng-container *ngIf="article.images && article.images[0]">
+      <img
+        mat-card-image
+        [src]="article.images[0].url"
+        [alt]="(article.food || article.equipment || article.venue).name"
+      />
+    </ng-container>
+    <ng-container *ngIf="!(article.images && article.images[0])">
+      <app-empty-placeholder mat-card-image></app-empty-placeholder>
+    </ng-container>
+
+    <mat-card-actions align="end" class="article-actions">
+      <button mat-fab color="accent" (click)="showArticleDetails()">
+        <mat-icon>info_outline</mat-icon>
+      </button>
+      <button mat-fab color="accent" *ngIf="(displayQuantity$ | async) === false" (click)="addOrderArticle()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-fab disabled color="accent" *ngIf="displayQuantity$ | async">
+        {{ quantity }}
+      </button>
+    </mat-card-actions>
+  </div>
+
+  <mat-card-footer>
+    <mat-card-title [matTooltip]="(article.food || article.equipment || article.venue).name">
+      {{ (article.food || article.equipment || article.venue).name }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ article.priceMva | number: '1.0-0' }} NOK / {{ 'PERSON' | appTranslate }}
+    </mat-card-subtitle>
+  </mat-card-footer>
+</mat-card>

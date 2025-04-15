@@ -1,0 +1,36 @@
+<ng-container *ngIf="form" [formGroup]="form">
+  <div class="form-row form-row-dual">
+    <mat-form-field>
+      <mat-label>{{ 'STREET' | appTranslate }}</mat-label>
+      <input matInput type="text" formControlName="street" />
+      <mat-error *ngIf="street.invalid">
+        {{ street | validationError }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        {{ 'APARTMENT_NUMBER' | appTranslate }} ({{ 'OPTIONAL' | appTranslate | lowercase }})
+      </mat-label>
+      <input matInput type="text" formControlName="apartment" />
+      <mat-error *ngIf="apartment.invalid">
+        {{ apartment | validationError }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="form-row form-row-dual">
+    <mat-form-field>
+      <mat-label>{{ 'POSTAL' | appTranslate }}</mat-label>
+      <app-postcode-input matInput formControlName="postal"></app-postcode-input>
+      <mat-error *ngIf="postal.invalid">
+        {{ postal | validationError }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ 'CITY' | appTranslate }}</mat-label>
+      <input matInput type="text" formControlName="city" />
+      <mat-error *ngIf="city.invalid">
+        {{ city | validationError }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+</ng-container>

@@ -1,0 +1,169 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Order Arena v<%= htmlWebpackPlugin.options.version %>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings updated!"
+msgstr "Settings updated!"
+
+msgid "Primary color palette settings for Order Arena Plugin."
+msgstr "Primary color palette settings for Order Arena Plugin."
+
+msgid "Accent color palette settings for Order Arena Plugin."
+msgstr "Accent color palette settings for Order Arena Plugin."
+
+msgid "Warn color palette settings for Order Arena Plugin."
+msgstr "Warn color palette settings for Order Arena Plugin."
+
+msgid "Image headers settings for Order Arena Plugin."
+msgstr "Image headers settings for Order Arena Plugin."
+
+msgid "Settings for Order Arena Plugin"
+msgstr "Settings for Order Arena Plugin"
+
+msgid "Primary colors"
+msgstr "Primary colors"
+
+msgid "Primary color palette settings for Order Arena Plugin."
+msgstr "Primary color palette settings for Order Arena Plugin."
+
+msgid "Primary palette color"
+msgstr "Primary palette color"
+
+msgid "Primary palette accent color"
+msgstr "Primary palette accent color"
+
+msgid "Accent colors"
+msgstr "Accent colors"
+
+msgid "Accent color palette settings for Order Arena Plugin."
+msgstr "Accent color palette settings for Order Arena Plugin."
+
+msgid "Accent palette color"
+msgstr "Accent palette color"
+
+msgid "Accent palette accent color"
+msgstr "Accent palette accent color"
+
+msgid "Warn colors"
+msgstr "Warn colors"
+
+msgid "Warn color palette settings for Order Arena Plugin."
+msgstr "Warn color palette settings for Order Arena Plugin."
+
+msgid "Warn palette color"
+msgstr "Warn palette color"
+
+msgid "Warn palette accent color"
+msgstr "Warn palette accent color"
+
+msgid "Custom colors"
+msgstr "Custom colors"
+
+msgid "Custom color palettes settings for Order Arena Plugin."
+msgstr "Custom color palettes settings for Order Arena Plugin."
+
+msgid "Background palette color"
+msgstr "Background palette color"
+
+msgid "Background palette accent color"
+msgstr "Background palette accent color"
+
+msgid "Toolbar palette color"
+msgstr "Toolbar palette color"
+
+msgid "Toolbar palette accent color"
+msgstr "Toolbar palette accent color"
+
+msgid "Image headers"
+msgstr "Image headers"
+
+msgid "Image headers settings for Order Arena Plugin."
+msgstr "Image headers settings for Order Arena Plugin."
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Order confirmation"
+msgstr "Order confirmation"
+
+msgid "Terms and conditions"
+msgstr "Terms and conditions"
+
+msgid "Order Arena"
+msgstr "Order Arena"
+
+msgid "Order Arena Settings"
+msgstr "Order Arena Settings"
+
+msgid "OA Checkout Page Template"
+msgstr "OA Checkout Page Template"
+
+msgid "OA Equipment Page Template"
+msgstr "OA Equipment Page Template"
+
+msgid "OA Menu Page Template"
+msgstr "OA Menu Page Template"
+
+msgid "OA Profile Page Template"
+msgstr "OA Profile Page Template"
+
+msgid "OA Terms Page Template"
+msgstr "OA Terms Page Template"
+
+msgid "OA Venues Page Template"
+msgstr "OA Venues Page Template"
+
+msgid "Pages from Order Arena Plugin"
+msgstr "Pages from Order Arena Plugin"
+
+msgid "Order Arena Pages"
+msgstr "Order Arena Pages"
+
+msgid "Order Arena Page"
+msgstr "Order Arena Page"
+
+msgid "Add New Order Arena Page"
+msgstr "Add New Order Arena Page"
+
+msgid "Edit Order Arena Page"
+msgstr "Edit Order Arena Page"
+
+msgid "New Order Arena Page"
+msgstr "New Order Arena Page"
+
+msgid "View Order Arena Page"
+msgstr "View Order Arena Page"
+
+msgid "View Order Arena Pages"
+msgstr "View Order Arena Pages"
+
+msgid "Search Order Arena Pages"
+msgstr "Search Order Arena Pages"
+
+msgid "All Order Arena Pages"
+msgstr "All Order Arena Pages"
+
+msgid "No Order Arena Pages found"
+msgstr "No Order Arena Pages found"
+
+msgid "Order Arena Page Attributes"
+msgstr "Order Arena Page Attributes"
+
+msgid "Insert into Order Arena Page"
+msgstr "Insert into Order Arena Page"
+
+msgid "Uploaded to this Order Arena Page"
+msgstr "Uploaded to this Order Arena Page"
+
+msgid "Order Arena Page Image"
+msgstr "Order Arena Page Image"
+
+msgid "Remove Order Arena Page Image"
+msgstr "Remove Order Arena Page Image"
+
+msgid "Use Order Arena Page Image"
+msgstr "Use Order Arena Page Image"
