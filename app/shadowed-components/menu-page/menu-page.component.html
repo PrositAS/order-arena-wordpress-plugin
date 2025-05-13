@@ -1,0 +1,23 @@
+<mat-drawer-container
+  #drawerRef
+  [hasBackdrop]="!shouldOpenBasket"
+  [ngStyle]="{ visibility: (hidden$ | async) ? 'hidden' : 'visible' }"
+>
+  <mat-drawer
+    #basketDrawer
+    position="end"
+    [mode]="shouldOpenBasket ? 'side' : 'over'"
+    [autoFocus]="false"
+    [opened]="shouldOpenBasket"
+  >
+    <app-basket></app-basket>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-basket-button (click)="basketDrawer.toggle()"></app-basket-button>
+    <app-menu [articleType]="articleType"></app-menu>
+  </mat-drawer-content>
+</mat-drawer-container>
+<app-overlay-spinner
+  *ngIf="hidden$ | async"
+  [triggerRef]="drawerRef._element.nativeElement"
+></app-overlay-spinner>

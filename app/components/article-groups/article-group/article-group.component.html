@@ -1,0 +1,39 @@
+<mat-spinner *ngIf="loading$ | async"></mat-spinner>
+<ng-container *ngIf="(loading$ | async) === false && (articleGroup$ | async) as articleGroup">
+  <ng-container *ngIf="groupId">
+    <div class="pure-g">
+      <div class="pure-u-0 pure-u-lg-2-24 pure-u-xl-4-24"></div>
+      <div class="pure-u-1 pure-u-lg-20-24 pure-u-xl-16-24">
+        <div class="pure-g">
+          <ng-container *ngTemplateOutlet="articleGroupDetails"></ng-container>
+        </div>
+      </div>
+      <div class="pure-u-0 pure-u-lg-2-24 pure-u-xl-4-24"></div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="group">
+    <ng-container *ngTemplateOutlet="articleGroupDetails"></ng-container>
+  </ng-container>
+
+  <ng-template #articleGroupDetails>
+    <div id="articleGroup-{{ articleGroup.id }}" class="article-group">
+      <h2 *ngIf="mainGroup">{{ articleGroup.name }}</h2>
+      <h3 *ngIf="!mainGroup">{{ articleGroup.name }}</h3>
+
+      <p *ngIf="articleGroup.description" class="article-group-description">
+        {{ articleGroup.description }}
+      </p>
+
+      <app-articles [group]="articleGroup" [groupHasSubgroups]="groupHasSubgroups$ | async"></app-articles>
+    </div>
+
+    <ng-container *ngIf="mainGroup && childArticleGroups$ | async as childArticleGroups">
+      <app-article-group
+        *ngFor="let childArticleGroup of childArticleGroups"
+        [mainGroup]="false"
+        [group]="childArticleGroup"
+      >
+      </app-article-group>
+    </ng-container>
+  </ng-template>
+</ng-container>

@@ -1,0 +1,106 @@
+@import 'variables';
+
+a,
+button {
+  &.mdc-button {
+    --mdc-filled-button-container-shape: 0;
+    --mdc-outlined-button-container-shape: 0;
+
+    &.mat-mdc-button-base {
+      &.add-to-basket {
+        height: 56px;
+        line-height: $up-font-xl-lh;
+      }
+
+      &.scroll-to-register {
+        height: 48px;
+        line-height: $up-font-s-lh;
+      }
+    }
+
+    &.mat-mdc-button {
+      border-radius: unset;
+
+      &.mat-accent {
+        color: $up-light-gray;
+      }
+
+      &[disabled][disabled],
+      &:disabled {
+        color: $up-gray;
+      }
+    }
+
+    &.mat-mdc-raised-button,
+    &.mat-mdc-outlined-button,
+    &.mat-mdc-unelevated-button {
+      &[disabled][disabled],
+      :disabled {
+        background-color: $up-light-gray;
+      }
+    }
+  }
+
+  &.mat-mdc-fab {
+    box-shadow: none;
+
+    &.mat-accent {
+      &[disabled][disabled],
+      &:disabled {
+        --mdc-fab-container-color: #{$up-light-gray};
+      }
+    }
+  }
+
+  &,
+  &.mdc-button {
+    &.mat-mdc-button,
+    &.mat-mdc-raised-button,
+    &.mat-mdc-outlined-button,
+    &.mat-mdc-unelevated-button {
+      &.form-field-tall {
+        height: 56px;
+      }
+    }
+  }
+
+  &.mdc-icon-button.mat-mdc-icon-button {
+    &.with-background {
+      background-color: rgba($up-gray, 0.4);
+    }
+
+    &.mat-mdc-button-base {
+      &.icon-only {
+        --mdc-icon-button-state-layer-size: var(--mdc-icon-button-icon-size);
+        padding: 0;
+
+        .mat-mdc-button-touch-target {
+          height: var(--mdc-icon-button-state-layer-size);
+          width: var(--mdc-icon-button-state-layer-size);
+        }
+      }
+    }
+  }
+}
+
+form {
+  button[type='submit'] {
+    margin-top: 1em;
+  }
+}
+
+.article {
+  a,
+  button {
+    &.mat-mdc-fab[disabled][disabled],
+    .mat-mdc-mini-fab[disabled][disabled] {
+      &.mat-accent {
+        --mdc-fab-container-color: #{$up-accent-color};
+        --mdc-fab-icon-color: #{$up-accent-contrast-color};
+        --mat-mdc-fab-color: #{$up-accent-contrast-color};
+
+        opacity: 0.75;
+      }
+    }
+  }
+}

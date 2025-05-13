@@ -1,0 +1,61 @@
+@use '@angular/material' as mat;
+@use 'angular-material-contrast-fix';
+@use 'sass:map';
+
+@include mat.core();
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400,700');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined');
+
+@import 'styles/variables';
+
+$up-base-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $up-primary-palette,
+      accent: $up-accent-palette,
+      warn: $up-warn-palette,
+    ),
+    typography: $up-typography-config,
+    density: 0,
+  )
+);
+$up-theme: map.merge(
+  $up-base-theme,
+  (
+    custom-background: $up-background-palette,
+    custom-toolbar: $up-toolbar-palette,
+  )
+);
+
+@include mat.all-component-themes($up-theme);
+@include angular-material-contrast-fix.all-component-themes($up-theme);
+@include mat.typography-hierarchy($up-typography-config);
+
+@import 'purecss-sass';
+@import 'styles/basic';
+@import 'styles/themes-support';
+
+@import 'styles/button';
+@import 'styles/button-toggle';
+@import 'styles/card';
+@import 'styles/checkbox';
+@import 'styles/datepicker';
+@import 'styles/dialog';
+@import 'styles/drawer';
+@import 'styles/expansion';
+@import 'styles/form-field';
+@import 'styles/form';
+@import 'styles/input';
+@import 'styles/sidenav';
+@import 'styles/slide-toggle';
+@import 'styles/spinner';
+@import 'styles/table';
+@import 'styles/tabs';
+@import 'styles/toolbar';
+
+@include custom-card-color($up-theme);
+@include custom-tabs-color($up-theme);
+@include custom-toolbar-color($up-theme);
+
+@import 'styles/external-styles-fixes';
