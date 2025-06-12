@@ -1,0 +1,28 @@
+<div class="orders">
+  <ng-container *ngIf="orders$ | async as orders">
+    <app-empty-placeholder *ngIf="!orders.length">
+      {{ 'ORDER_HISTORY_EMPTY' | appTranslate }} <br />
+    </app-empty-placeholder>
+    <mat-accordion *ngIf="user$ | async as user" [multi]="true">
+      <ng-container *ngFor="let order of orders; let i = index">
+        <app-order [order]="order" [index]="i" [user]="user"></app-order>
+      </ng-container>
+    </mat-accordion>
+    <div *ngIf="totalOrders$ | async as totalOrders" class="orders-summary">
+      {{ orders.length }} {{ 'OF' | appTranslate }} {{ totalOrders }}
+    </div>
+  </ng-container>
+  <div class="orders-actions" *ngIf="page !== totalPages">
+    <mat-spinner *ngIf="loading$ | async"></mat-spinner>
+    <button
+      *ngIf="totalPages && page < totalPages"
+      mat-flat-button
+      color="primary"
+      type="button"
+      (click)="loadOrdersPage()"
+      [disabled]="loading$ | async"
+    >
+      {{ 'LOAD_MORE' | appTranslate }}
+    </button>
+  </div>
+</div>

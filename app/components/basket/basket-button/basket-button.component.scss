@@ -1,0 +1,17 @@
+@import '/src/styles/basic';
+
+:host {
+  z-index: 3;
+  position: absolute;
+  height: 48px;
+  width: 64px;
+
+  right: 0;
+  top: calc(100% / 3 * 2);
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  @include primary-background;
+}

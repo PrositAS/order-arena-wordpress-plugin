@@ -1,0 +1,169 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Order Arena v<%= htmlWebpackPlugin.options.version %>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Settings updated!"
+msgstr "Innstillinger oppdatert!"
+
+msgid "Primary color palette settings for Order Arena Plugin."
+msgstr "Primær fargepalett-innstillinger for Order Arena-pluginen."
+
+msgid "Accent color palette settings for Order Arena Plugin."
+msgstr "Aksent fargepalett-innstillinger for Order Arena-pluginen."
+
+msgid "Warn color palette settings for Order Arena Plugin."
+msgstr "Varsel fargepalett-innstillinger for Order Arena-pluginen."
+
+msgid "Image headers settings for Order Arena Plugin."
+msgstr "Bildehoder innstillinger for Order Arena-pluginen."
+
+msgid "Settings for Order Arena Plugin"
+msgstr "Innstillinger for Order Arena-pluginen"
+
+msgid "Primary colors"
+msgstr "Primærfarger"
+
+msgid "Primary color palette settings for Order Arena Plugin."
+msgstr "Innstillinger for primære fargepalett for Order Arena Plugin."
+
+msgid "Primary palette color"
+msgstr "Primærfarge"
+
+msgid "Primary palette accent color"
+msgstr "Primær aksentfarge"
+
+msgid "Accent colors"
+msgstr "Aksentfarger"
+
+msgid "Accent color palette settings for Order Arena Plugin."
+msgstr "Innstillinger for aksent fargepalett for Order Arena Plugin."
+
+msgid "Accent palette color"
+msgstr "Aksentfarge"
+
+msgid "Accent palette accent color"
+msgstr "Aksent aksentfarge"
+
+msgid "Warn colors"
+msgstr "Varselfarger"
+
+msgid "Warn color palette settings for Order Arena Plugin."
+msgstr "Innstillinger for varsel fargepalett for Order Arena Plugin."
+
+msgid "Warn palette color"
+msgstr "Varselfarge"
+
+msgid "Warn palette accent color"
+msgstr "Varsel aksentfarge"
+
+msgid "Custom colors"
+msgstr "Egendefinerte farger"
+
+msgid "Custom color palettes settings for Order Arena Plugin."
+msgstr "Innstillinger for egendefinerte fargepalett for Order Arena Plugin."
+
+msgid "Background palette color"
+msgstr "Bakgrunnspalettfarge"
+
+msgid "Background palette accent color"
+msgstr "Bakgrunnspalett aksentfarge"
+
+msgid "Toolbar palette color"
+msgstr "Verktøylinjepalettfarge"
+
+msgid "Toolbar palette accent color"
+msgstr "Verktøylinjepalett aksentfarge"
+
+msgid "Image headers"
+msgstr "Bildeoverskrift"
+
+msgid "Image headers settings for Order Arena Plugin."
+msgstr "Innstillinger for bildeoverskrifter for Order Arena Plugin."
+
+msgid "Menu"
+msgstr "Meny"
+
+msgid "Order confirmation"
+msgstr "Bestillingsbekreftelse"
+
+msgid "Terms and conditions"
+msgstr "Vilkår og betingelser"
+
+msgid "Order Arena"
+msgstr "Order Arena"
+
+msgid "Order Arena Settings"
+msgstr "Order Arena innstillinger"
+
+msgid "OA Checkout Page Template"
+msgstr "OA Kasse sidemal"
+
+msgid "OA Equipment Page Template"
+msgstr "OA Utstyr sidemal"
+
+msgid "OA Menu Page Template"
+msgstr "OA Meny sidemal"
+
+msgid "OA Profile Page Template"
+msgstr "OA Profil sidemal"
+
+msgid "OA Terms Page Template"
+msgstr "OA Vilkår sidemal"
+
+msgid "OA Venues Page Template"
+msgstr "OA Lokaler sidemal"
+
+msgid "Pages from Order Arena Plugin"
+msgstr "Sider fra Order Arena-pluginen"
+
+msgid "Order Arena Pages"
+msgstr "Order Arena Sider"
+
+msgid "Order Arena Page"
+msgstr "Order Arena Side"
+
+msgid "Add New Order Arena Page"
+msgstr "Legg til ny Order Arena Side"
+
+msgid "Edit Order Arena Page"
+msgstr "Rediger Order Arena Side"
+
+msgid "New Order Arena Page"
+msgstr "Ny Order Arena Side"
+
+msgid "View Order Arena Page"
+msgstr "Vis Order Arena Side"
+
+msgid "View Order Arena Pages"
+msgstr "Vis Order Arena Sider"
+
+msgid "Search Order Arena Pages"
+msgstr "Søk Order Arena Sider"
+
+msgid "All Order Arena Pages"
+msgstr "Alle Order Arena Sider"
+
+msgid "No Order Arena Pages found"
+msgstr "Ingen Order Arena Sider funnet"
+
+msgid "Order Arena Page Attributes"
+msgstr "Order Arena Sideegenskaper"
+
+msgid "Insert into Order Arena Page"
+msgstr "Sett inn i Order Arena Side"
+
+msgid "Uploaded to this Order Arena Page"
+msgstr "Lastet opp til denne Order Arena Siden"
+
+msgid "Order Arena Page Image"
+msgstr "Order Arena Sidebilde"
+
+msgid "Remove Order Arena Page Image"
+msgstr "Fjern Order Arena Sidebilde"
+
+msgid "Use Order Arena Page Image"
+msgstr "Bruk Order Arena Sidebilde"

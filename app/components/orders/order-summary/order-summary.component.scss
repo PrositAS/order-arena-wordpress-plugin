@@ -1,0 +1,128 @@
+@import '/src/styles/variables';
+
+.order {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  margin-top: 1em;
+
+  .summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.2em;
+    color: $up-dark-gray;
+  }
+  .details {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1em;
+
+    .delivery {
+      display: flex;
+      flex-direction: column;
+
+      font-size: $up-font-xs-size;
+      line-height: $up-font-m-lh;
+
+      .delivery-address,
+      .delivery-time {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        box-sizing: border-box;
+        padding: 0.5em;
+
+        span {
+          max-width: 100%;
+          overflow: auto;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1em;
+
+      .actions-reorder {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+      }
+    }
+  }
+
+  .additional-info {
+    font-size: $up-font-xs-size;
+    line-height: $up-font-m-lh;
+
+    .order-note,
+    .delivery-note {
+      display: flex;
+      flex-direction: column;
+
+      box-sizing: border-box;
+      padding: 0.5em;
+    }
+  }
+
+  .articles {
+    .header {
+      font-size: $up-font-xs-size;
+      line-height: $up-font-m-lh;
+    }
+
+    .article {
+      box-sizing: border-box;
+      padding-top: 0.5em;
+
+      font-size: $up-font-s-size;
+
+      .name {
+        font-weight: $up-font-weight-bold;
+      }
+    }
+  }
+
+  .price-summary {
+    & > * {
+      padding-top: 0.5em;
+    }
+  }
+}
+
+@media screen and (min-width: 568px) {
+  .order {
+    .summary {
+      flex-direction: row;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .order {
+    .details {
+      flex-direction: row;
+      justify-content: space-between;
+
+      .delivery {
+        flex-direction: row;
+        gap: 2em;
+      }
+
+      .actions {
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .order .summary.lg-screen-hidden {
+    display: none;
+  }
+}

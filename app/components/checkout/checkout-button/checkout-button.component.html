@@ -1,0 +1,10 @@
+<a
+  mat-flat-button
+  type="button"
+  [color]="color"
+  class="checkout-button"
+  [disabled]="isEmpty$ | async"
+  [href]="checkoutUrl"
+>
+  {{ 'GO_TO_CHECKOUT' | appTranslate | uppercase }}
+</a>

@@ -1,0 +1,36 @@
+<div
+  role="group"
+  class="time-input-container"
+  [formGroup]="time"
+  [attr.aria-describedby]="userAriaDescribedBy"
+  [attr.aria-labelledby]="parentFormField?.getLabelId()"
+  (focusin)="onFocusIn($event)"
+  (focusout)="onFocusOut($event)"
+>
+  <input
+    type="number"
+    class="time-input-element"
+    formControlName="hours"
+    min="0"
+    max="23"
+    [attr.aria-label]="'HOURS' | appTranslate"
+    (input)="handleInput('hours', time.controls.hours, minutesInput)"
+    (keyup.backspace)="autoFocusPrev(time.controls.hours)"
+    (blur)="handleBlur(time.controls.hours, minutesInput)"
+    #hours
+  />
+  <span class="time-input-spacer">&colon;</span>
+  <input
+    type="number"
+    class="time-input-element"
+    formControlName="minutes"
+    min="0"
+    max="59"
+    [step]="minutesInterval ? minutesInterval : 1"
+    [attr.aria-label]="'MINUTES' | appTranslate"
+    (input)="handleInput('minutes', time.controls.minutes)"
+    (keyup.backspace)="autoFocusPrev(time.controls.minutes, hoursInput)"
+    (blur)="handleBlur(time.controls.minutes)"
+    #minutes
+  />
+</div>

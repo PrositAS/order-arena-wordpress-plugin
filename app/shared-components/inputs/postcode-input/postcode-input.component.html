@@ -1,0 +1,19 @@
+<div
+  class="postcode-input-container"
+  [attr.aria-describedby]="userAriaDescribedBy"
+  [attr.aria-labelledby]="parentFormField?.getLabelId()"
+  (focusin)="onFocusIn($event)"
+  (focusout)="onFocusOut($event)"
+>
+  <input
+    #postcodeInput
+    [formControl]="postcode"
+    type="tel"
+    inputmode="numeric"
+    maxlength="4"
+    class="postcode-input-element mdc-text-field__input"
+    [attr.aria-label]="'POSTCODE' | appTranslate"
+    (input)="handleInput()"
+    (blur)="handleBlur()"
+  />
+</div>

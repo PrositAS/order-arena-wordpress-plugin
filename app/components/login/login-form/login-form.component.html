@@ -1,0 +1,41 @@
+<form #formRef *ngIf="form" [formGroup]="form" (ngSubmit)="login()">
+  <mat-form-field [appearance]="appearance">
+    <mat-label>{{ 'EMAIL' | appTranslate }}</mat-label>
+    <input matInput type="email" [formControl]="username" />
+    <mat-error *ngIf="username.invalid">{{ username | validationError }}</mat-error>
+  </mat-form-field>
+  <mat-form-field [appearance]="appearance">
+    <mat-label>{{ 'PASSWORD' | appTranslate }}</mat-label>
+    <input matInput [type]="hidePassword ? 'password' : 'text'" [formControl]="password" />
+    <button
+      mat-icon-button
+      matSuffix
+      type="button"
+      (click)="hidePassword = !hidePassword"
+      [attr.aria-label]="'HIDE_PASSWORD' | appTranslate"
+      [attr.aria-pressed]="hidePassword"
+    >
+      <mat-icon class="material-icons-outlined">
+        {{ hidePassword ? 'visibility_off' : 'visibility' }}
+      </mat-icon>
+    </button>
+    <mat-error *ngIf="password.invalid">{{ password | validationError }}</mat-error>
+  </mat-form-field>
+  <div class="form-errors">
+    <mat-error *ngIf="form.invalid && form.errors?.inactiveCustomer" class="standalone-error">
+      {{ form | validationError }}
+    </mat-error>
+  </div>
+  <button mat-flat-button [color]="color" type="submit" [disabled]="!form.valid">
+    {{ 'LOG_IN' | appTranslate }}
+  </button>
+  <app-reset-password-button
+    [color]="color"
+    [email]="username && username.valid ? username.value : null"
+  ></app-reset-password-button>
+  <app-overlay-spinner
+    *ngIf="validating$ | async"
+    [triggerRef]="formRef"
+    [transparent]="true"
+  ></app-overlay-spinner>
+</form>

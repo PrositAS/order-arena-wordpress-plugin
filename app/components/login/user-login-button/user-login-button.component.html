@@ -1,0 +1,10 @@
+<div class="user-login">
+  <span class="user-login-text" *ngIf="(loggedIn$ | async) === false && displayText">
+    {{ 'ALREADY_HAVE_ACCOUNT' | appTranslate }}
+  </span>
+  <div class="user-data-text" *ngIf="loggedIn$ | async">
+    <span class="user-data-intro" *ngIf="displayText">{{ 'YOU_ARE_LOGGED_AS' | appTranslate }}</span>
+    <span class="user-data">{{ displayUser() | async }}</span>
+  </div>
+  <app-login-button></app-login-button>
+</div>

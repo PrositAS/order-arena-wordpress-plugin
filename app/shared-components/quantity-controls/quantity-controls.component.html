@@ -1,0 +1,18 @@
+<div class="quantity-controls">
+  <div class="input">
+    <button mat-fab [color]="color" [disabled]="quantity.value <= minQuantity" (click)="subtract()">
+      <mat-icon>remove</mat-icon>
+    </button>
+
+    <ng-container *ngIf="quantity">
+      <input [formControl]="quantity" type="number" [min]="article.baseQuantity" />
+    </ng-container>
+    <button mat-fab [color]="color" (click)="add()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <div class="info warning" *ngIf="quantityWarning && quantity.value <= minQuantity">
+    <mat-icon class="material-icons-outlined">warning_amber</mat-icon>
+    <span>{{ 'MIN_QUANTITY' | appTranslate }}: {{ minQuantity }} </span>
+  </div>
+</div>

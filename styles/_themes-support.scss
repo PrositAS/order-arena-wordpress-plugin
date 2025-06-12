@@ -1,0 +1,54 @@
+@mixin fill-full-height {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin fill-remaining-height {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+body.oaup-body {
+  height: 100vh;
+  overflow: hidden;
+
+  /* NOTE: Development support */
+  &:not(.order_arena_page-template) {
+    > #main {
+      @include fill-full-height;
+    }
+  }
+
+  &.order_arena_page-template {
+    display: flex;
+
+    /* NOTE: WordPress theme support */
+    #page {
+      @include fill-full-height;
+    }
+
+    /* NOTE: Enfold theme suppport */
+    #wrap_all {
+      @include fill-full-height;
+
+      #main {
+        @include fill-remaining-height;
+      }
+    }
+
+    /* NOTE: Divi theme support */
+    &.et_divi_theme #page-container {
+      @include fill-full-height;
+
+      & > .et-boc {
+        @include fill-full-height;
+      }
+
+      #et-main-area {
+        @include fill-remaining-height;
+      }
+    }
+  }
+}

@@ -1,0 +1,186 @@
+@import 'variables';
+
+@mixin flex-fill-page {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  flex-grow: 1;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin primary-background {
+  background-color: $up-primary-color;
+}
+
+@mixin accent-background {
+  background-color: $up-accent-color;
+}
+
+@mixin sidenav-content-background {
+  background-color: var(--mat-sidenav-content-background-color);
+}
+
+@mixin scrollable {
+  overflow-y: auto;
+}
+
+a.plain-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+span.link {
+  cursor: pointer;
+  color: $up-primary-color;
+  text-decoration: underline;
+}
+
+.disabled-text {
+  color: $up-dark-gray;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.accent-text {
+  color: $up-accent-color;
+}
+
+.primary-text {
+  color: $up-primary-color;
+}
+
+.bold-text {
+  font-weight: $up-font-weight-bold;
+}
+
+.primary-section {
+  @include primary-background;
+}
+
+.accent-section {
+  @include accent-background;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.scrollable {
+  height: 100%;
+  @include scrollable;
+}
+
+.flex {
+  width: 100%;
+  display: flex;
+}
+
+.flex-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@mixin define-grid($s-cols, $m-cols, $l-cols, $gap) {
+  .grid.grid-#{$s-cols}-#{$m-cols}-#{$l-cols}-#{$gap} {
+    gap: $gap;
+
+    & > .grid-item {
+      width: calc((100% - ($s-cols - 1) * $gap) / $s-cols);
+    }
+
+    @media only screen and (min-width: 768px) {
+      & > .grid-item {
+        width: calc((100% - ($m-cols - 1) * $gap) / $m-cols);
+      }
+    }
+
+    @media only screen and (min-width: 1024px) {
+      & > .grid-item {
+        width: calc((100% - ($l-cols - 1) * $gap) / $l-cols);
+      }
+    }
+  }
+}
+
+.centered {
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.center-aligned {
+  align-items: center;
+}
+
+.profile-page {
+  overflow-y: auto;
+}
+
+[class^='pure-u'],
+[class*=' pure-u-'] {
+  &.profile-content,
+  &.menu,
+  &.order-form {
+    box-sizing: border-box;
+    padding: 1em;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  [class^='pure-u'],
+  [class*=' pure-u-'] {
+    &.profile-content,
+    &.menu,
+    &.order-form {
+      padding: 1em 0;
+    }
+  }
+}
+
+.icon-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 30%;
+  z-index: -1;
+
+  @include center;
+
+  mat-icon {
+    width: unset;
+    height: unset;
+    font-size: 72px;
+  }
+}
+
+.background-image-header {
+  width: 100%;
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+}

@@ -1,0 +1,18 @@
+<div
+  class="phone-input-container"
+  [attr.aria-describedby]="userAriaDescribedBy"
+  [attr.aria-labelledby]="parentFormField?.getLabelId()"
+  (focusin)="onFocusIn($event)"
+  (focusout)="onFocusOut($event)"
+>
+  <input
+    #phoneInput
+    [formControl]="phone"
+    type="tel"
+    maxlength="16"
+    class="phone-input-element mdc-text-field__input"
+    [attr.aria-label]="'PHONE' | appTranslate"
+    (input)="handleInput()"
+    (blur)="handleBlur()"
+  />
+</div>

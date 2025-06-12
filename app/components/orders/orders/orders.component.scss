@@ -1,0 +1,28 @@
+@import '/src/styles/variables';
+
+.orders {
+  mat-divider:first-of-type {
+    display: none;
+  }
+}
+
+.orders-summary {
+  padding: 0.5em;
+
+  display: flex;
+  justify-content: center;
+
+  font-size: $up-font-xs-size;
+  line-height: $up-font-m-lh;
+}
+
+.orders-actions {
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1em;
+}

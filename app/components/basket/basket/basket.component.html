@@ -1,0 +1,78 @@
+<div class="basket mat-typography" [ngStyle]="{ visibility: (hidden$ | async) ? 'hidden' : 'visible' }">
+  <mat-icon class="material-icons-outlined">takeout_dining</mat-icon>
+  <h2>{{ 'BASKET' | appTranslate }}</h2>
+
+  <div class="mat-dual-toggle">
+    <label [attr.for]="orderTypeToggle" class="mdc-label mat-toggle-label" (click)="setDelivery()">
+      {{ 'DELIVERY' | appTranslate | uppercase }}
+    </label>
+    <mat-slide-toggle
+      #orderTypeToggle
+      [formControl]="isPickup"
+      class="dual-option-toggle"
+      color="primary"
+      [hideIcon]="true"
+    >
+      {{ 'PICK_UP' | appTranslate | uppercase }}
+    </mat-slide-toggle>
+  </div>
+
+  <ng-container *ngIf="articles$ | async as articles">
+    <div class="articles-list">
+      <app-empty-placeholder *ngIf="!articles.length">
+        {{ 'BASKET_IS_EMPTY' | appTranslate }}
+      </app-empty-placeholder>
+      <ng-container *ngIf="!!articles.length">
+        <ng-container *ngFor="let article of articles; let i = index">
+          <mat-divider [inset]="true"></mat-divider>
+          <div class="article-details">
+            <div class="header">
+              <p>
+                <span class="id">{{ i + 1 }}</span>
+                <span class="name">{{ article.name }}</span>
+              </p>
+              <button mat-icon-button class="icon-only" color="accent" (click)="removeArticle(article)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+            <div class="price">
+              <p class="net-price">
+                <span>{{ 'NET' | appTranslate | uppercase }}</span>
+                <span>{{ article.price * article.quantity | number: '1.0-0' }} NOK</span>
+              </p>
+            </div>
+            <div class="quantity">
+              <app-quantity-controls
+                [color]="accent"
+                [article]="article"
+                [syncWithStore]="true"
+              ></app-quantity-controls>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <mat-divider></mat-divider>
+
+  <div class="summary">
+    <p class="net-price">
+      <span>{{ 'NET' | appTranslate | uppercase }}</span>
+      <span>{{ netPrice$ | async | number: '1.0-0' }} NOK</span>
+    </p>
+    <p class="vat-rate">
+      <span>{{ 'VAT' | appTranslate | uppercase }}</span>
+      <span>{{ vatPrice$ | async | number: '1.0-0' }} NOK</span>
+    </p>
+
+    <mat-divider [inset]="true"></mat-divider>
+
+    <p class="gross-price">
+      <span>{{ 'GROSS' | appTranslate | uppercase }}</span>
+      <span>{{ grossPrice$ | async | number: '1.0-0' }} NOK</span>
+    </p>
+
+    <app-checkout-button *ngIf="!isOrderForm" [color]="'accent'"></app-checkout-button>
+  </div>
+</div>

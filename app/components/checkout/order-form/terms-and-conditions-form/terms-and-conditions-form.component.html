@@ -1,0 +1,16 @@
+<div class="terms-and-conditions-form">
+  <form>
+    <mat-checkbox [formControl]="control">
+      {{ 'TERMS_AND_CONDITIONS_APPROVAL' | appTranslate }}
+    </mat-checkbox>
+    <mat-error class="standalone-error checkbox-error" *ngIf="control.invalid">
+      {{ control | validationError }}
+    </mat-error>
+  </form>
+  <p>
+    {{ 'TERMS_AND_CONDITIONS_INFO' | appTranslate }}
+    <a class="plain-link bold-text" [href]="termsUrl" target="_blank">
+      ({{ 'TERMS_AND_CONDITIONS_LINK' | appTranslate }})
+    </a>
+  </p>
+</div>

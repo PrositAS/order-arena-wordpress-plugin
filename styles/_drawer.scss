@@ -1,0 +1,18 @@
+mat-drawer-container.mat-drawer-container {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  mat-drawer.mat-drawer {
+    width: 300px;
+  }
+}
+
+mat-drawer.mat-drawer-end {
+  --mat-sidenav-container-text-color: #{$up-primary-contrast-color};
+  --mat-sidenav-container-background-color: #{$up-primary-color};
+  --mat-sidenav-container-divider-color: #{$up-primary-color};
+
+  border-left-style: none;
+}

@@ -1,0 +1,3 @@
+<ng-container *ngIf="count$ | async as count">
+  <span *ngIf="count" [matBadge]="count" [matBadgeColor]="color"></span>
+</ng-container>

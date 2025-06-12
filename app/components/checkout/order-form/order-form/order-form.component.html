@@ -1,0 +1,57 @@
+<app-order-form-header [displayUserLogin]="loggedIn$ | async"></app-order-form-header>
+<app-login [inDialog]="false" shadowRootId="checkout-page" *ngIf="(loggedIn$ | async) === false"></app-login>
+<div class="pure-g" *ngIf="loggedIn$ | async">
+  <div class="pure-u-0 pure-u-lg-2-24 pure-u-xl-4-24 pure-u-xxl-6-24 pure-u-xxxl-7-24"></div>
+  <div class="pure-u-1 pure-u-lg-20-24 pure-u-xl-16-24 pure-u-xxl-12-24 pure-u-xxxl-10-24 order-form">
+    <ng-container *ngIf="form">
+      <app-past-order-delivery-data-form
+        *ngIf="loggedIn$ | async"
+        [form]="form"
+      ></app-past-order-delivery-data-form>
+      <app-invoice-form
+        [form]="invoiceForm"
+        (saveForm)="saveForm($event)"
+        (resetForm)="resetForm($event)"
+      ></app-invoice-form>
+      <app-delivery-address-form
+        *ngIf="(isPickup$ | async) === false"
+        [form]="deliveryAddressForm"
+        (saveForm)="saveForm($event)"
+        (resetForm)="resetForm($event)"
+      ></app-delivery-address-form>
+      <app-delivery-time-form
+        [form]="deliveryTimeForm"
+        [isEquipmentDelivery]="isEquipmentDelivery$ | async"
+        (saveForm)="saveForm($event)"
+        (resetForm)="resetForm($event)"
+      ></app-delivery-time-form>
+      <app-additional-info-form
+        [form]="additionalInfoForm"
+        [minGuests]="minGuests$ | async"
+        (saveForm)="saveForm($event)"
+        (resetForm)="resetForm($event)"
+      ></app-additional-info-form>
+      <app-terms-and-conditions-form [control]="termsAndConditionsControl"></app-terms-and-conditions-form>
+      <div class="order-footer">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          (click)="completeOrder()"
+          [disabled]="(loading$ | async) || !form.valid"
+        >
+          <mat-spinner *ngIf="loading$ | async" diameter="30"></mat-spinner>
+          <span *ngIf="(loading$ | async) === false">
+            {{ 'ORDER' | appTranslate | uppercase }} ({{ totalPrice$ | async | number: '1.0-0' }} NOK)
+          </span>
+        </button>
+        <app-login-button
+          *ngIf="(loggedIn$ | async) === false"
+          [mode]="'link'"
+          logInSuffix="TO_BE_ABLE_TO_ORDER"
+        ></app-login-button>
+      </div>
+    </ng-container>
+  </div>
+  <div class="pure-u-0 pure-u-lg-2-24 pure-u-xl-4-24 pure-u-xxl-6-24 pure-u-xxxl-7-24"></div>
+</div>

@@ -1,0 +1,52 @@
+@import '/src/styles/variables';
+
+.user-login {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0 1em;
+
+  font-size: $up-font-m-size;
+  font-weight: $up-font-weight-light;
+
+  .user-login-text {
+    display: none;
+  }
+
+  .user-data-text {
+    display: flex;
+    text-align: center;
+
+    .user-data-intro {
+      display: none;
+    }
+
+    .user-data {
+      font-weight: $up-font-weight-bold;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .user-login {
+    justify-content: flex-end;
+
+    .user-data-text {
+      gap: 0.2em;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .user-login {
+    flex-direction: row;
+    gap: 1em;
+
+    .user-login-text,
+    .user-data-text .user-data-intro {
+      display: inline-block;
+    }
+  }
+}

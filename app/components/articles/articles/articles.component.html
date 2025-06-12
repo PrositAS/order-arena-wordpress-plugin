@@ -1,0 +1,17 @@
+<mat-spinner *ngIf="loading$ | async"></mat-spinner>
+<ng-container *ngIf="(loading$ | async) === false && (articlesInGroup$ | async) as articlesInGroup">
+  <app-empty-placeholder *ngIf="!groupHasSubgroups && (!articlesInGroup || !articlesInGroup.length)">
+    {{ 'NO_ARTICLES_IN_GROUP' | appTranslate }}
+  </app-empty-placeholder>
+<div
+  class="grid grid-1-2-3-2rem articles"
+  *ngIf="(loading$ | async) === false && articlesInGroup.length"
+>
+  <div
+    class="grid-item article"
+    *ngFor="let articleInGroup of articlesInGroup"
+  >
+    <app-article [article]="articleInGroup.article"></app-article>
+  </div>
+</div>
+</ng-container>

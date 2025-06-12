@@ -1,0 +1,31 @@
+<mat-card class="mat-gray">
+  <mat-card-header>
+    <mat-card-title>
+      {{ 'ADDITIONAL_INFO_FORM_TITLE' | appTranslate }}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form *ngIf="form" [formGroup]="form">
+      <div class="form-row">
+        <mat-checkbox formControlName="doDeliveryInfo">
+          {{ 'ADD_DELIVERY_INFORMATION' | appTranslate }}
+        </mat-checkbox>
+      </div>
+      <div class="form-row" *ngIf="doDeliveryInfo">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'DELIVERY_INFORMATION' | appTranslate }}</mat-label>
+          <textarea matInput formControlName="deliveryInfo"></textarea>
+          <mat-error *ngIf="deliveryInfo.invalid">
+            {{ deliveryInfo | validationError }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'ORDER_NOTES' | appTranslate }}</mat-label>
+          <textarea matInput formControlName="notes"></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

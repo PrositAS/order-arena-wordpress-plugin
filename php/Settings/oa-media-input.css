@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body.wp-admin.toplevel_page_order_arena div#wpcontent {
+  padding: 0 2rem;
+}
+
+body.wp-admin.toplevel_page_order_arena div#wpbody-content div.oa-admin-page-wrapper {
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.oa-admin-page-header {
+  margin: 2rem 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.oa-admin-page-header .oa-admin-page-logo {
+  max-height: 80px;
+  width: auto;
+}
+
+input.oa-input,
+.oa-color-input-wrapper {
+  height: 56px;
+  border: 1px solid rgb(85, 85, 85);
+  border-radius: 0;
+}
+
+.oa-color-input-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.oa-color-input-wrapper .oa-color-input {
+  height: 100%;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
+
+.oa-color-input-wrapper .oa-color-input[type='text'] {
+  flex: 1 1 auto;
+}
+
+.oa-media-input-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.oa-media-input {
+  width: 100%;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.oa-media-input input.oa-input[type='text'] {
+  flex: 1 1 auto;
+}
+
+.oa-button[type='button'],
+input[type='submit']#oa-settings-submit-button {
+  height: 56px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 0;
+
+  letter-spacing: 1.25px;
+
+  background-color: #151e2c;
+  color: #ffffff;
+}
+
+@media only screen and (min-width: 783px) {
+  .oa-color-input-wrapper {
+    max-width: 225px;
+  }
+}
+
+@media only screen and (min-width: 961px) {
+  .oa-media-input-wrapper {
+    max-width: 550px;
+  }
+}

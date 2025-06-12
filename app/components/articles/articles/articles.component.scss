@@ -1,0 +1,7 @@
+@import '/src/styles/basic';
+
+.articles {
+  padding: 1em 0;
+}
+
+@include define-grid(1, 2, 3, 2rem);
